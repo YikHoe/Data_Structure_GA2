@@ -51,7 +51,7 @@ void loadEmailsFromFile(InboxManagement& emailInbox, const string& filename) {
         if (sender.empty()) break;
 
         // Create a new Email object and push it onto the inbox
-        Email newEmail = { sender, priority, subject, content, dateReceived, timeReceived };
+        Email newEmail = { sender, priority, subject, content, dateReceived, timeReceived, false };
         emailInbox.pushEmail(newEmail);
     }
 }
