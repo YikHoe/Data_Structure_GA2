@@ -224,9 +224,6 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 	}
 }
 
-
-
-
 int main() {
 	InboxManagement emailInbox;
 	LinkedListQueue emailQueue("Email Queue");
