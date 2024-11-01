@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "InboxManagementUsingLLStack.hpp"
+#include "LinkedListStack.hpp"
 using namespace std;
 
 struct queueNode // using doubly linked list
@@ -85,6 +85,24 @@ public:
 		return current;
 	}
 
+	Email dequeue() {
+		if (!isEmpty()) {
+			Email current = front->email;
+			front = front->next;
+
+			if (front != nullptr) {
+				front->prev = nullptr;
+			}
+			else {
+				rear = nullptr;
+			}
+
+			return current;
+		}
+
+		cout << "Queue is empty!" << endl;
+		exit(1);
+	}
 
 	void enQueueToFront(Email email) // insert to the front
 	{
@@ -156,6 +174,37 @@ public:
 		}
 	}
 
+	void displaySpamEmail() {
+		if (isEmpty()) {
+			cout << "Queue is empty." << endl;
+			return;
+		}
+
+		int currentRow = 1;
+		queueNode* current = front;
+
+		cout << left << setw(5) << "No"
+			<< setw(40) << "Sender"
+			<< setw(10) << "Priority"
+			<< setw(100) << "Subject"
+			<< setw(20) << "Date Received"
+			<< setw(10) << "Time Received" << endl;
+		cout << string(200, '-') << endl;
+
+		while (current) {
+			if (current->email.isSpam) {
+				cout << left << setw(5) << currentRow
+					<< setw(40) << current->email.sender
+					<< setw(10) << current->email.priority
+					<< setw(100) << current->email.subject
+					<< setw(20) << current->email.dateReceived
+					<< setw(10) << current->email.timeReceived << endl;
+
+				currentRow++;
+			}
+			current = current->next;
+		}
+	}
 
 	void moveBasedOnPriority() {
 		if (isEmpty()) {
@@ -239,12 +288,12 @@ public:
 		else {
 			// Change the priority to "High"
 			current->email.priority = "High";
-			cout << endl <<"Priority of email at row " << rowNumber << " changed to 'High' and moved to the front." << endl;
+			cout << endl << "Priority of email at row " << rowNumber << " changed to 'High' and moved to the front." << endl;
 		}
 
 		// If the node is already at the front, no need to move
 		if (current == front) {
-			cout << endl  << "Email at row " << rowNumber << " is already at the front." << endl;
+			cout << endl << "Email at row " << rowNumber << " is already at the front." << endl;
 			return;
 		}
 

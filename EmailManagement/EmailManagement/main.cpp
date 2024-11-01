@@ -26,7 +26,7 @@ string readQuotedField(ifstream& file) {
 }
 
 // Function to load emails from a CSV file into the email inbox
-void loadEmailsFromFile(InboxManagement& emailInbox, const string& filename) {
+void loadEmailsFromFile(LinkedListQueue& emailQueue, const string& filename) {
 	ifstream file(filename);
 	string sender, priority, subject, content, dateReceived, timeReceived;
 
@@ -54,7 +54,7 @@ void loadEmailsFromFile(InboxManagement& emailInbox, const string& filename) {
 
         // Create a new Email object and push it onto the inbox
         Email newEmail = { sender, priority, subject, content, dateReceived, timeReceived, false };
-        emailInbox.pushEmail(newEmail);
+        emailQueue.enQueue(newEmail);
     }
 }
 
@@ -145,6 +145,15 @@ void selectAndDisplayEmail(InboxManagement& emailInbox, int choice) {
 	}
 }
 
+void preprocessEmail(InboxManagement& emailInbox, LinkedListQueue& emailQueue, spamDetector& detector) {
+	while (!emailQueue.isEmpty()) {
+		Email email = emailQueue.dequeue();
+		if (detector.detectSpam(email.content)) {
+			email.isSpam = true;
+		}
+		emailInbox.pushEmail(email);
+	}
+}
 
 void moveStackToQueue(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 	LinkedListStack<Email> tempStack; // Temporary stack to hold emails
@@ -174,7 +183,6 @@ void displayMainMenu() {
 	cout << "Please select an option: ";
 }
 
-
 void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 	int choice;
 
@@ -184,7 +192,8 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 		cout << "2. Select and Review an Email\n";
 		cout << "3. Filter and Sort Emails by Priority (High to Low)\n";
 		cout << "4. Mark an Email as Important\n";
-		cout << "5. Return to Main Menu\n";
+		cout << "5. Display Spam Emails\n";
+		cout << "6. Return to Main Menu\n";
 		cout << "Please select an option: ";
 		cin >> choice;
 
@@ -240,11 +249,17 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 			break;
 		}
 
-		case 5:
+		case 5: {
+			moveStackToQueue(emailInbox, emailQueue);
+			emailQueue.displaySpamEmail();
+			break;
+		}
+
+		case 6:
 			return;
 
 		default:
-			cout << "Invalid option. Please select a number between 1 and 5.\n";
+			cout << "Invalid option. Please select a number between 1 and6.\n";
 		}
 	}
 }
@@ -252,15 +267,12 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 int main() {
 	// Inbox management init
     InboxManagement emailInbox; 
-    loadEmailsFromFile(emailInbox, "DummyEmails.csv"); // load all emails
-
-	// email priority init
 	LinkedListQueue emailQueue("Email Queue");
-	moveStackToQueue(emailInbox, emailQueue);
-
-	// spam detector init
     spamDetector sDec;
-    loadSpamWords(sDec, "spamWords.txt");
+
+    loadEmailsFromFile(emailQueue, "DummyEmails.csv"); // load all emails into queue for preprosessing
+    loadSpamWords(sDec, "spamWords.txt"); // init spam detector
+	preprocessEmail(emailInbox, emailQueue, sDec); // process emails
 
 	int choice;
 

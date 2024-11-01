@@ -132,6 +132,7 @@
     <ClCompile Include="spamDetector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LinkedListQueue.hpp" />
     <ClInclude Include="LinkedListStack.hpp" />
     <ClInclude Include="spamDetector.hpp" />
   </ItemGroup>

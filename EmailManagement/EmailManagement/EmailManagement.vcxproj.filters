@@ -21,9 +21,18 @@
     <ClCompile Include="InboxManagementUsingLLStack.hpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="spamDetector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkedListStack.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="spamDetector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedListQueue.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
