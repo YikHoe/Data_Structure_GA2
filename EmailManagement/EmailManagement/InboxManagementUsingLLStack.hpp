@@ -17,7 +17,7 @@ struct Email {
     string content;      // Content of the email
     string dateReceived; // Date when the email was received
     string timeReceived; // Time when the email was received
-    bool isSpam;
+    bool isSpam;         // Spam flag
 };
 
 // Class to manage inbox using a linked list stack

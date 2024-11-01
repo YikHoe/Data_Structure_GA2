@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include "InboxManagementUsingLLStack.hpp"
+#include "spamDetector.hpp"
 
 using namespace std;
 
@@ -54,6 +55,29 @@ void loadEmailsFromFile(InboxManagement& emailInbox, const string& filename) {
         Email newEmail = { sender, priority, subject, content, dateReceived, timeReceived, false };
         emailInbox.pushEmail(newEmail);
     }
+}
+
+// load spam words and pharases
+void loadSpamWords(spamDetector& detector, const string& filename) {
+    ifstream file(filename);
+
+    if (!file.is_open()) {
+        cout << "Error opening spam words file." << endl;
+        return;
+    }
+
+    string line;
+    while (getline(file, line)) {
+        size_t delimPos = line.find(':');
+        if (delimPos != string::npos) {
+            string word = line.substr(0, delimPos);
+            int susWeight = stoi(line.substr(delimPos + 1));
+
+            detector.insert(word, susWeight);
+        }
+    }
+
+    file.close();
 }
 
 // Function to display the inbox in a formatted table
@@ -123,33 +147,37 @@ void selectAndDisplayEmail(InboxManagement& emailInbox, int choice) {
 // Main function to run the email inbox management program
 int main() {
     InboxManagement emailInbox; 
-    loadEmailsFromFile(emailInbox, "DummyEmails.csv"); 
+    loadEmailsFromFile(emailInbox, "DummyEmails.csv");
 
-    int choice; 
-    while (true) {
-        displayInbox(emailInbox);
 
-        cout << "\nEnter the row number to view an email, or 0 to quit: ";
-        cin >> choice; 
+    spamDetector sDec;
+    loadSpamWords(sDec, "spamWords.txt");
 
-        // Check for invalid input
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid choice. Please enter a number.\n";
-            continue;
-        }
+    //int choice; 
+    //while (true) {
+    //    displayInbox(emailInbox);
 
-        // Exit if user chooses 0
-        if (choice == 0) break;
-        // Display the selected email if the choice is valid
-        else if (choice > 0 && choice <= emailInbox.getInboxSize()) {
-            selectAndDisplayEmail(emailInbox, choice);
-        }
-        else {
-            cout << "Invalid choice. Please try again." << endl; 
-        }
-    }
+    //    cout << "\nEnter the row number to view an email, or 0 to quit: ";
+    //    cin >> choice; 
+
+    //    // Check for invalid input
+    //    if (cin.fail()) {
+    //        cin.clear();
+    //        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    //        cout << "Invalid choice. Please enter a number.\n";
+    //        continue;
+    //    }
+
+    //    // Exit if user chooses 0
+    //    if (choice == 0) break;
+    //    // Display the selected email if the choice is valid
+    //    else if (choice > 0 && choice <= emailInbox.getInboxSize()) {
+    //        selectAndDisplayEmail(emailInbox, choice);
+    //    }
+    //    else {
+    //        cout << "Invalid choice. Please try again." << endl; 
+    //    }
+    //}
 
     cout << "Exiting program." << endl; 
     return 0;

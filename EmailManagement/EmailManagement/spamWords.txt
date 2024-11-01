@@ -1,0 +1,738 @@
+access:2
+access now:4
+act:3
+act immediately:7
+act now:8
+action:3
+action required:7
+apply here:2
+apply now:4
+apply online:2
+become a member:2
+before it’s too late:8
+being a member:2
+buy:2
+buy direct:2
+buy now:5
+buy today:5
+call:2
+call free:3
+call me:2
+call now:5
+can we have a minute of your time?:5
+cancel now:5
+cancellation required:7
+claim now:5
+click:2
+click below:4
+click here:2
+click me to download:4
+click now:4
+click this link:4
+click to get:4
+click to remove:4
+contact us immediately:6
+deal ending soon:7
+do it now:7
+do it today:6
+don’t delete:2
+don’t hesitate:3
+don’t waste time:4
+exclusive deal:6
+expire:4
+expires today:6
+final call:8
+for instant access:5
+for only:3
+for you:2
+get it away:4
+get it now:6
+get now:5
+get paid:2
+get started:2
+get started now:4
+great offer:4
+hurry up:5
+immediately:4
+info you requested:3
+information you requested:3
+instant:4
+limited time:5
+new customers only:7
+now:2
+now only:5
+offer expires:7
+once in a lifetime:8
+only:2
+order now:5
+order today:5
+please read:2
+purchase now:5
+sign up free:2
+sign up free today:4
+supplies are limited:6
+take action:4
+take action now:6
+this won’t last:6
+time limited:5
+today:3
+top urgent:7
+trial:4
+urgent:7
+what are you waiting for?:5
+while supplies last:6
+you are a winner:6
+0 down:2
+4U:4
+all natural:3
+all new:3
+all-natural:3
+all-new:3
+allowance:2
+as seen on:3
+as seen on oprah:5
+at no cost:3
+auto email removal:6
+avoid:4
+beneficial offer:6
+beneficiary:2
+brand new pager:4
+bulk email:8
+buying judgements:9
+buying judgments:9
+cable converter:4
+calling creditors:6
+can you help us?:5
+cancel at any time:2
+cannot be combined:3
+celebrity:4
+cell phone cancer scam:9
+certified:3
+chance:4
+cheap:4
+cheap meds:9
+cialis:10
+claims:5
+claims not to be selling anything:6
+claims to be in accordance with some spam law:7
+claims to be legal:2
+clearance:3
+collect:1
+collect child support:7
+compare:1
+compare now:5
+compare online:4
+compare rates:4
+compete for your business:5
+confidentiality:3
+congratulations:1
+consolidate debt and credit:6
+consolidate your debt:5
+copy accurately:2
+copy dvds:6
+covid:5
+cures:5
+cures baldness:9
+diagnostic:4
+diet:4
+dig up dirt on friends:9
+direct email:4
+direct marketing:4
+eliminate debt:7
+explode your business:8
+fast viagra delivery:9
+finance:3
+financial:3
+financial advice:4
+financial independence:6
+financially independent:6
+for new customers only:4
+foreclosure:7
+free:7
+free access:6
+free bonus:6
+free cell phone:7
+free gift:7
+free grant money:8
+free information:6
+free installation:6
+free instant:6
+free iphone:7
+free laptop:7
+free leads:6
+free macbook:7
+free offer:6
+free priority mail:6
+free sample:6
+free website:6
+free!:7
+gift card:5
+gift certificate:5
+gift included:5
+give it away:6
+giving away:6
+giving it away:6
+gold:4
+great:1
+great deal:3
+greetings of the day:3
+growth hormone:8
+guarantee:5
+guaranteed deposit:6
+guaranteed income:6
+guaranteed payment:6
+have you been turned down?:6
+hello:3
+hidden charges:6
+hidden costs:6
+hidden fees:6
+high score:3
+home based business:6
+home mortgage:5
+human:1
+human growth hormone:8
+if only it were that easy:5
+important information:4
+important notification:4
+instant weight loss:8
+insurance lose weight:7
+internet marketing:5
+investment decision:4
+invoice:3
+it’s effective:4
+job alert:4
+junk:5
+lambo:9
+laser printer:5
+last day:4
+legal:2
+legal notice:4
+life:4
+life insurance:5
+lifetime access:5
+lifetime deal:5
+limited:4
+limited amount:5
+limited number:5
+limited offer:5
+limited supply:4
+limited time offer:4
+limited time only:3
+loan:3
+long distance phone number:2
+long distance phone offer:3
+lose weight:6
+lose weight fast:8
+lose weight spam:10
+lottery:7
+lower interest rate:4
+lower interest rates:4
+lower monthly payment:4
+lower your mortgage rate:6
+lowest insurance rates:6
+lowest interest rate:6
+lowest rate:3
+lowest rates:3
+luxury:2
+luxury car:2
+mail in order form:2
+mark this as not junk:3
+mass email:7
+medical:3
+medicine:3
+meet girls:8
+meet me:6
+meet singles:8
+meet women:8
+member:2
+member stuff:2
+message contains disclaimer:1
+message from:1
+millionaire:5
+millions:3
+mlm:7
+multi-level marketing:8
+name:1
+near you:4
+never before:2
+new:2
+new domain extensions:4
+nigerian:9
+no age restrictions:4
+no catch:2
+no claim forms:2
+no cost:2
+no credit check:3
+no credit experience:3
+no deposit required:3
+no disappointment:2
+no experience:3
+no fees:2
+no gimmick:2
+no hidden:2
+no hidden fees:2
+no hidden costs:2
+no interest:2
+no interests:2
+no inventory:2
+no investment:2
+no investment required:3
+no medical exams:3
+no middleman:2
+no obligation:2
+no payment required:2
+no purchase necessary:2
+no questions asked:2
+no selling:2
+no strings attached:2
+no-obligation:2
+nominated bank account:3
+not intended:1
+not junk:1
+not scam:1
+not spam:1
+notspam:1
+number 1:2
+obligation:2
+off:2
+off everything:2
+off shore:3
+offer extended:2
+offers:2
+offshore:3
+one hundred percent:2
+one-time:2
+online biz opportunity:6
+online degree:5
+online income:6
+online job:5
+open:1
+opportunity:3
+opt-in:2
+order:2
+order shipped by:2
+order status:2
+orders shipped by:2
+orders shipped by shopper:8
+outstanding value:2
+outstanding values:2
+password:5
+passwords:7
+pay your bills:2
+per year:3
+per month:2
+perfect:2
+performance:2
+phone:2
+please:1
+please open:4
+presently:2
+print form signature:4
+print from signature:4
+print out and fax:4
+priority mail:4
+privately owned funds:3
+prizes:6
+problem with shipping:5
+problem with your order:5
+produced and sent out:3
+profit:2
+promise you:7
+purchase:2
+pure profits:5
+quotes:2
+rate:2
+real thing:3
+rebate:6
+reduce debt:7
+refinance home:7
+refinanced home:7
+refund:6
+regarding:2
+removal instructions:6
+removes:8
+removes wrinkles:8
+replica watches:10
+request:2
+request now:3
+request today:3
+requires initial investment:8
+requires investment:8
+reverses aging:10
+risk free:5
+rolex:10
+round the world:2
+safeguard notice:4
+sale:2
+sales:2
+save:2
+save big:3
+save big month:3
+save money:2
+save now:2
+score with babes:10
+search engine optimisation:4
+section 301:4
+see for yourself:3
+seen on:3
+serious:2
+serious case:5
+serious offer:5
+serious only:5
+sex:10
+shop now:2
+shopper:4
+shopping spree:3
+snoring:5
+social security number:8
+soon:2
+spam:10
+spam free:2
+special deal:4
+special discount:4
+special for you:4
+special offer:4
+stainless steel:5
+stock alert:6
+stock disclaimer statement:6
+stock pick:6
+stop calling me:6
+stop emailing me:6
+stop further distribution:7
+stop snoring:8
+strong buy:6
+stuff on sale:2
+subject to:2
+subject to cash:7
+subscribe:2
+subscribe for free:3
+subscribe now:3
+super promo:4
+supplies:2
+this is an ad:5
+terms:2
+the best rates:3
+the following form:4
+this isn’t junk:2
+this isn’t spam:2
+this isn’t a scam:2
+timeshare:6
+timeshare offers:7
+traffic:3
+trial unlimited:3
+u.s. dollars:2
+undisclosed:6
+undisclosed recipient:6
+university diplomas:8
+unsecured credit:6
+unsecured debt:6
+unsolicited:9
+unsubscribe:2
+urgent response:7
+euros:2
+vacation:6
+vacation offers:7
+valium:10
+viagra:10
+vicodin:10
+vip:6
+visit our website:4
+wants credit card:8
+warranty expired:6
+we hate spam:2
+we honor all:3
+website visitors:4
+weekend getaway:5
+weight loss:7
+what’s keeping you?:5
+while available:4
+while in stock:4
+while stocks last:5
+while you sleep:6
+who really wins?:6
+win:3
+winner:7
+winning:4
+won:5
+xanax:10
+xxx:10
+you have been chosen:7
+you have been selected:7
+your chance:7
+your status:4
+zero chance:4
+zero percent:4
+zero risk:4
+#1:3
+%:3
+% free:4
+% satisfied:3
+0%:3
+0% risk:4
+100%:3
+100% free:6
+100% more:5
+100% off:5
+100% satisfied:5
+99.90%:3
+99%:3
+access for free:4
+additional income:5
+amazed:3
+amazing:3
+amazing offer:8
+amazing stuff:7
+be amazed:6
+be surprised:4
+be your own boss:7
+believe me:6
+best bargain:7
+best deal:6
+best offer:6
+best price:6
+best rates:6
+big bucks:7
+bonus:5
+boss:5
+can’t live without:6
+cancel:3
+consolidate debt:6
+double your cash;6
+double your income:6
+drastically reduced:5
+earn extra cash:6
+earn money:5
+eliminate bad credit:6
+expect to earn:4
+extra:2
+extra cash:3
+extra income:3
+fantastic:3
+fantastic deal:4
+fantastic offer:4
+fast:5
+fast cash:6
+financial freedom:5
+free consultation:3
+free hosting:3
+free info:4
+free investment:6
+free membership:6
+free money:10
+free preview:4
+free quote:	7
+free trial:5
+full refund:2
+get out of debt:6
+giveaway:3
+guaranteed:7
+increase sales:3
+increase traffic:3
+incredible deal:5
+join billions:3
+join millions:3
+join millions of americans:3
+join thousands:3
+lower rates:3
+lowest price:3
+make money:5
+million:5
+million dollars:6
+miracle:7
+money back:4
+month trial offer:4
+more internet traffic:4
+number one:4
+one hundred percent guaranteed:6
+one time:3
+pennies a day:3
+potential earnings:4
+prize:5
+promise:5
+pure profit:4
+risk-free:6
+satisfaction guaranteed:4
+save big money:4
+save up to:3
+special promotion:4
+the best:3
+thousands:3
+unbeatable offer:5
+unbelievable:6
+unlimited:3
+unlimited trial:4
+wonderful:3
+you will not believe your eyes:5
+$$$:6
+50% off:5
+a few bob:2
+accept cash cards:3
+accept credit cards:3
+affordable:2
+affordable deal:2
+avoid bankruptcy:4
+bad credit:5
+bank:2
+bankruptcy:6
+bargain:4
+billing:2
+billing address:2
+billion:6
+billion dollars:7
+billionaire;4
+card accepted:2
+cards accepted:2
+cash:3
+cash bonus:3
+cash out:3
+cash-out:3
+cashcashcash:6
+casino:5
+cents on the dollar:4
+check:2
+check or money order:4
+claim your discount:3
+cost:2
+costs:2
+credit:4
+credit bureaus:5
+credit card:5
+credit card offers:5
+credit or debit:4
+deal:2
+debt:5
+discount:3
+dollars:3
+double your:4
+double your wealth:4
+earn:4
+earn $:4
+earn cash:4
+earn extra income:4
+earn from home:4
+earn monthly:4
+earn per month:4
+earn per week:4
+earn your degree:4
+easy income:3
+easy terms:3
+f r e e:3
+for free:3
+for just $:3
+for just $:3
+for just $:3
+get money:4
+get your money:4
+hidden assets:6
+huge discount:4
+income:4
+income from home:4
+increase revenue:4
+increase sales:4
+increse traffic:4
+increase your chances:4
+initial investment:4
+instant earnings:4
+instant income:4
+insurance:4
+investment:4
+investment advice:4
+lifetime:3
+loans:4
+make $:4
+money:3
+money making:4
+money-back guarantee:4
+money-making:4
+monthly payment:2
+mortgage:5
+mortgage rates:5
+offer:2
+one hundred percent free:3
+only $:3
+price:2
+price protection:3
+prices:2
+profits:4
+quote:2
+rates:2
+refinance:5
+save $:3
+serious cash:4
+subject to credit:4
+us dollars:2
+why pay more?:3
+your income:4
+acceptance:2
+accordingly:1
+account-based marketing:3
+accounts:2
+addresses:2
+addresses on cd:5
+beverage:1
+confidentiality on all orders:2
+confidentially on all orders:2
+content marketing:3
+dear:2
+dear,:4
+digital marketing:3
+dormant:2
+email extractor:8
+email harvest:8
+email marketing:7
+extract email:8
+form:2
+freedom:2
+friend:2
+here:1
+hidden:3
+home:1
+home based:2
+home employment:2
+home-based:2
+home-based business:2
+homebased business:2
+if you no longer wish to receive:8
+important information regarding:6
+in accordance with laws:3
+increase your sales:5
+internet market:3
+leave:2
+lose:3
+maintained:2
+marketing:3
+marketing solution:3
+marketing solutions:3
+medium:2
+message contains:6
+multi level marketing:8
+never:2
+one time mailing:7
+online marketing:3
+online pharmacy:9
+opt in:5
+per day:2
+per week:2
+pre-approved:5
+problem:2
+removal:4
+remove:4
+reserves the right:3
+reverses:2
+sample:2
+satisfaction:2
+score:2
+search engine:2
+search engine listings:3
+search engines:2
+sent in compliance:3
+solution:2
+stop:2
+success:2
+teen:1
+terms and conditions:3
+warranty:2
+web traffic:3
+wife:1
+work at home:3
+work from home:3

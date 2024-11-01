@@ -36,5 +36,12 @@ void spamDetector::insert(string word, int weight) {
 int spamDetector::detectSpam(const string& text) {
     int currentSusScore = 0;
 
+    for (int i = 0; i < sizeCnt; i++) {
+        if (text.find(sw[i].word) != string::npos) {
+            currentSusScore += sw[i].susWeight;
+        }
+    }
+
+    return currentSusScore;
 }
 
