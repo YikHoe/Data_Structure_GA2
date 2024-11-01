@@ -1,21 +1,713 @@
 sender,priority,subject,content,date,time
-lectus.ante.dictum@hotmail.com,High,"ut mi. Duis risus odio, auctor vitae, aliquet nec, imperdiet","cubilia Curae Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum",27th Sep 2024,4:17 PM
-metus.in@yahoo.net,Low,Pellentesque tincidunt tempus risus. Donec egestas. Duis ac arcu. Nunc,"lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec dignissim magna a tortor. Nunc commodo auctor velit. Aliquam nisl. Nulla eu neque pellentesque massa lobortis ultrices. Vivamus rhoncus.",26th May 2024,4:30 AM
-a@hotmail.org,Low,"sem elit, pharetra ut, pharetra sed, hendrerit a, arcu. Sed","magna a tortor. Nunc commodo auctor velit. Aliquam nisl. Nulla eu neque pellentesque massa lobortis ultrices. Vivamus rhoncus. Donec est. Nunc ullamcorper, velit in aliquet lobortis, nisi nibh lacinia orci, consectetuer euismod est arcu ac orci. Ut semper pretium neque.",26th Feb 2024,5:48 PM
-etiam.ligula.tortor@aol.org,High,"tellus. Nunc lectus pede, ultrices a, auctor non, feugiat nec,","convallis est, vitae sodales nisi magna sed dui. Fusce aliquam, enim nec tempus scelerisque, lorem ipsum sodales purus, in molestie tortor nibh sit amet orci.",23rd Aug 2024,1:54 PM
-magna.et@aol.edu,High,Sed eu eros. Nam consequat dolor vitae dolor. Donec fringilla.,"Nullam enim. Sed nulla ante, iaculis nec, eleifend non, dapibus rutrum, justo. Praesent luctus. Curabitur egestas nunc sed libero. Proin sed turpis nec mauris",1st Jan 2024,6:47 PM
-libero.lacus.varius@hotmail.com,Low,"molestie orci tincidunt adipiscing. Mauris molestie pharetra nibh. Aliquam ornare,","ultrices, mauris ipsum porta elit, a feugiat tellus lorem eu metus. In lorem. Donec elementum, lorem ut aliquam iaculis, lacus pede sagittis augue, eu tempor erat neque",15th Jan 2024,12:36 AM
-id.sapien@yahoo.com,High,enim. Etiam gravida molestie arcu. Sed eu nibh vulputate mauris,pharetra. Nam ac nulla. In tincidunt congue turpis. In condimentum. Donec at arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Donec tincidunt. Donec vitae erat vel pede blandit congue. In scelerisque scelerisque,5th May 2024,12:28 AM
-elit.pede@hotmail.edu,Low,"malesuada id, erat. Etiam vestibulum massa rutrum magna. Cras convallis","blandit enim consequat purus. Maecenas libero est, congue a, aliquet vel, vulputate eu, odio. Phasellus at augue id ante dictum cursus. Nunc mauris elit, dictum eu, eleifend nec,",13th Apr 2024,5:51 AM
-semper.egestas@icloud.couk,High,"a ultricies adipiscing, enim mi tempor lorem, eget mollis lectus","justo nec ante. Maecenas mi felis, adipiscing fringilla, porttitor vulputate, posuere vulputate, lacus. Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse non leo. Vivamus nibh dolor,",23rd Apr 2024,9:22 AM
-vitae.nibh@aol.ca,Low,tortor nibh sit amet orci. Ut sagittis lobortis mauris. Suspendisse,habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce aliquet magna a neque. Nullam ut nisi a odio semper cursus. Integer mollis. Integer tincidunt aliquam,18th May 2024,12:49 PM
-mauris.a@google.edu,Low,"magna. Phasellus dolor elit, pellentesque a, facilisis non, bibendum sed,","molestie orci tincidunt adipiscing. Mauris molestie pharetra nibh. Aliquam ornare, libero at auctor ullamcorper, nisl arcu iaculis enim, sit amet ornare lectus justo eu",16th Aug 2024,6:58 AM
-odio.phasellus@icloud.net,High,vitae risus. Duis a mi fringilla mi lacinia mattis. Integer,"est. Nunc laoreet lectus quis massa. Mauris vestibulum, neque sed dictum eleifend, nunc risus varius orci, in consequat enim diam vel arcu. Curabitur ut odio vel est",21st Mar 2024,11:02 AM
-lorem.semper@aol.org,Low,"fringilla mi lacinia mattis. Integer eu lacus. Quisque imperdiet, erat","dictum. Phasellus in felis. Nulla tempor augue ac ipsum. Phasellus vitae mauris sit amet lorem semper auctor. Mauris vel turpis. Aliquam adipiscing lobortis risus. In mi pede, nonummy ut, molestie in, tempus eu,",5th May 2024,12:29 AM
-magna.sed.dui@yahoo.net,Low,"taciti sociosqu ad litora torquent per conubia nostra, per inceptos",Etiam vestibulum massa rutrum magna. Cras convallis convallis dolor. Quisque tincidunt pede ac urna. Ut tincidunt vehicula risus. Nulla eget metus eu erat semper rutrum. Fusce dolor,10th Oct 2024,6:59 AM
-arcu.nunc@yahoo.ca,Low,molestie tellus. Aenean egestas hendrerit neque. In ornare sagittis felis.,"luctus et ultrices posuere cubilia Curae Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus. Proin nisl sem, consequat nec,",21st Apr 2024,11:35 PM
-et.euismod@hotmail.couk,High,feugiat placerat velit. Quisque varius. Nam porttitor scelerisque neque. Nullam,"est. Nunc ullamcorper, velit in aliquet lobortis, nisi nibh lacinia orci, consectetuer euismod est arcu ac orci. Ut semper pretium neque. Morbi quis urna. Nunc quis arcu vel quam dignissim pharetra. Nam ac nulla. In",21st Jun 2024,10:36 AM
-pharetra.nam@yahoo.edu,High,"Aenean massa. Integer vitae nibh. Donec est mauris, rhoncus id,","Etiam ligula tortor, dictum eu, placerat eget, venenatis a, magna. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam laoreet, libero et tristique pellentesque, tellus sem mollis dui, in sodales elit erat vitae risus. Duis a",1st Aug 2024,6:46 PM
-mus.donec.dignissim@yahoo.org,High,"nulla ante, iaculis nec, eleifend non, dapibus rutrum, justo. Praesent","nunc nulla vulputate dui, nec tempus mauris erat eget ipsum. Suspendisse sagittis. Nullam vitae diam. Proin dolor. Nulla semper tellus id nunc interdum feugiat. Sed nec metus facilisis lorem tristique aliquet. Phasellus",4th Feb 2024,9:15 PM
-magna@protonmail.couk,Low,"ullamcorper. Duis cursus, diam at pretium aliquet, metus urna convallis","Nam nulla magna, malesuada vel, convallis in, cursus et, eros. Proin ultrices. Duis volutpat nunc sit amet metus. Aliquam erat volutpat. Nulla facilisis. Suspendisse commodo tincidunt nibh. Phasellus nulla. Integer",6th Jan 2024,5:46 AM
-sem.semper@protonmail.edu,Low,nascetur ridiculus mus. Proin vel arcu eu odio tristique pharetra.,"nulla. Integer vulputate, risus a ultricies adipiscing, enim mi tempor lorem, eget mollis lectus pede et risus. Quisque libero lacus, varius et, euismod et, commodo at, libero. Morbi accumsan laoreet ipsum. Curabitur consequat, lectus",16th Jul 2024,12:37 PM
+lectus.ante.dictum@hotmail.com,High,the secrets to SUCCESS,"Hi James,
+
+Have you claim your complimentary gift yet?
+
+I've compiled in here a special astrology gift that predicts everything about you in the future?
+
+This is your enabler to take the correct actions now.
+
+>> Click here to claim your copy now >>
+
+Claim yours now, and thank me later.
+
+
+Love,
+Heather",27th Sep 2024,4:17 PM
+metus.in@yahoo.net,Low,You Earned 500 GCLoot Points,"
+alt_text
+Congratulations, you just earned
+500
+
+
+You completed the following offer:
+
+View Points History
+To stop recieving notifications when you earn points, please visit your profile and click ""Preferences"" to change your setting.
+
+Room 1203, 12th Floor, Tower 3
+
+China Hong Kong City, 33 Canton Road
+
+Tsim Sha Tsui, Kowloon, Hong Kong
+
+Unsubscribe",26th May 2024,4:30 AM
+a@hotmail.org,Low,Your GitHub launch code,"Here's your GitHub launch code, @Mortyj420!
+ 
+an octocat standing next to a rocket
+ Continue signing up for GitHub by entering the code below:
+ 63024610
+ 
+Open GitHub",26th Feb 2024,5:48 PM
+etiam.ligula.tortor@aol.org,High,[The Virtual Reward Center] Re: ** Clarifications,"Hello,
+ 
+Thank you for contacting the Virtual Reward Center. We here at the Virtual Reward Center do not dictate what Rewards get sent out to recipients. Please contact your program sponsor, (the company from which you originally received your Reward) at helpdesk@cspace.com for this inquiry.
+ 
+We apologize for any inconvenience.
+ 
+ 
+Thank You,
+
+The Virtual Reward Center
+Customer Support Team Lead",23rd Aug 2024,1:54 PM
+magna.et@aol.edu,High,"10-1 MLB Expert Inside, Plus Everything You Need To Have A BLOCKBUSTER Saturday","Hey Prachanda Rawal,
+
+Today's newsletter is Jam-Packed with everything you need to have a BLOCKBUSTER day, including an Insider Play, video picks, two Spotlight games, and Special Insider Deals. Just our way of saying thanks for being an Insider, so strap in, and let's have a GREAT Saturday.   
+____________________________________________
+Expert Of The Day - Andre' IFill
+
+Andre ""The Tower"" Ifill is on another Strong MLB and he will keep it rolling today. Andre comes in off a perfect 5-0 day on the MLB Diamond and he is now 10-1 in his last 11. Now that is one heck of a run. Today, Andre has zeroed in of a HUGE MLB play that he is calling his Saturday Sizzler. Best Of All, This play is your's for just $14.00.
+ 
+
+CLICK HERE To Get Andre's Saturday Sizzler For Just $14.00
+
+CLICK HERE To Get A Week Of Andre's MLB Plays For Just $59.00 
+
+
+
+
+
+
+
+
+
+
+Special Offer From Ceasars
+ 
+Ready to go Full Caesar? Place your first bet of $10 or more. If it doesn't win, Caesars will refund your bet up to $1250. And now they've sweetened the pot! Win OR lose you will get 1,000 reward credits AND 1,000 Tier credits! Now, THAT'S Full Caesar! Use promo code WINNERSFULL and sign up today! CLICK HERE
+ 
+Disclaimer: 21+. Terms and conditions apply
+Today's Top Spotlight Game
+Braves vs Reds by James Boutros
+
+
+
+
+
+
+
+
+
+
+
+
+
+The Atlanta Braves will be on the road as they take on the Cincinnati Reds. Jared Shuster will take the mound for the Braves. Granot spam Ashcraft is expected to be the starting pitcher for the Reds. Jared Shuster is expected to start for the Braves. He went 5.2 innings and gave up five hits, three walks, one earned run, and struck out two in a win in his last start against the Colorado Rockies. On the season, he has a record of 4-2 with a 4.57 ERA, 1.38 WHIP, and a 23/22 K/BB ratio in eight starts. Opposing batters are hitting .233 against Shuster.
+
+The Braves have been very good on offense this season. They are top 10 in the league in runs, hits, home runs, RBIs, batting average, OBP, SLG, and OPS. Matt Olson leads the team in home runs. Ronald Acuna leads the team in runs, hits, and stolen bases. Acuna is top five in the MLB in runs, hits, and stolen bases... CLICK HERE to finish reading and see our PREDICTION on this contest.
+
+
+
+CLICK HERE to see our PREDICTIONS on all of Today's MLB Action. 
+
+
+
+Looking To Bet This Game? Check Out These Incredible Sportsbook Offers - CLICK HERE
+
+
+
+
+Will Rogers wants to tell you a secret. Ready? Here it is. CFL LINES PROVIDE THE MOST EXPLOITABLE ADVANTAGES OF ANY SPORT! Will has done exactly that so far this year, going a strong 6-1 on the CFL season so far. If you’re jonesing for football and you like soft lines, this  100% GUARANTEED CANADIAN CRUSHER is for you. Just $30.00. CLICK HERE
+
+
+
+
+***JOIN Our Discord Community***
+
+We know these cappers are hot, but don’t let the fun end here! Click the links below to follow us on Twitter and join our Discord Community, as we aim to take down the books. We’re cashing in on  Picks, Parlays, contests, and more! This is your chance to talk to our experts and show off your skills. If you like next-level sports betting conversations, this is the place for you.
+
+CLICK HERE To Join The Community
+Our Expert Video Picks
+Everyday our Expert Handicappers prepare a daily Pick video for you! Each is just a few minutes long and covers their analysis on the game.
+
+CLICK HERE to watch Today's Videos on YouTube.
+Today's Spotlight Game #2
+Astros vs Dodgers by Andre' IFill  
+ 
+
+
+
+
+
+For anyone with chores on Saturday, take out the trash early. The Houston Astros (41-34) and Los Angeles Dodgers (41-33) are set to bang on Saturday night as they continue their weekend series. Dodger Stadium is hosting, and there won't be a shortage of cameras catching every angle. The first pitch on Saturday is scheduled for 7:15 p.m. EDT and FOX will have the broadcast as they did for their infamous 2017 World Series battle. These two dugouts will do whatever it takes for a win right now, as they are both barely clinging to playoff spots. Let's see the lengths they're willing to go.
+
+
+
+
+There isn't a club in the majors with a lower ERA than the Houston Astros. The bullpen is impressive, with top 10 marks in ERA, FIP, and WAR. However, the starting rotation is how the Astros won it all last season, and they've also been stellar in 2023. Unfortunately, injuries have taken their toll, thrusting Ronel Blanco into the rotation temporarily. As a starter this season, he's thrown 17.0 innings. In that time, he's allowed 17 hits, nine walks, five homers, and nine earned runs. His road ERA is 6.30, mostly due to one disastrous relief appearance in April... CLICK HERE to finish reading and see our PREDICTION on this contest. 
+
+Another day, another solid 2-1 performance from Mike “Big Game” Briggs, running his major league heater to 14-4 in his last 18 Premium Plays. No one has spent more time atop the leaderboard than Briggs and if you haven’t given him a shot, today’s 100% GUARANTEED MLB MAX UNIT MONSTER is the perfect opportunity to do just that. This game goes at 1:10 ET and it is just $24.00. CLICK HERE
+Insider's Exclusive Pick
+We Got Back On Track Yesterday
+Our Freebie yesterday was on the Under 9 in the Minnesota/ Detroit game and it was an easy winner as just five runs were scored in the contest. We will look to Keep It Rolling today with a FREE play from Caleb Davis.  
+
+Free Pick: Angels/ Rockies Over 12
+
+
+
+
+
+
+
+
+
+
+
+The Angels have been able to hit the long ball well all season, and during night games they've managed to do so even more. Colorado is sitting right around the top 10 in overall batting average and appears to have found their swing of late, racking up 13 runs in their last three games and hitting 21 homers in 20 June contests. Colorado isn't foreign to giving up runs either and with the Angels' ability to drive runners in they should do so. Canning has had ball control issues at times this season and if the Rockies are able to make him work on the mound, they should like their chances to continue their hot hitting. Take the over.
+",1st Jan 2024,6:47 PM
+libero.lacus.varius@hotmail.com,Low,AFE Model Casting Call ,"Model Casting Call
+Thank you for taking the time to register for the Anambra Fashion Expo 2023 Model Call. We are thrilled to have received your information and are excited to review your submission.
+
+Our team will be carefully reviewing all of the applications we receive over the
+next few weeks
+
+Have you followed us on our social media handles?
+
+Remember, one of the prerequisites for qualification is to follow all our social
+media accounts and share all our content using the hashtag #AFE2023
+
+You can follow us on Facebook, Instagram, and Twitter.
+
+Facebook: https://facebook.com/AnambraFashionExpo2023
+Instagram: https://instagram.com/anambrafashionexpo
+Twitter: https://twitter.com/anambrafashion
+
+In the meantime, we encourage you to stay connected and keep an eye out for
+updates about the event. We will be posting!
+
+Note: Create your personalized profile picture (DP) for the Model Casting of the Anambra Fashion Expo 2023
+
+You can create your DP using the following link: https://getdp.co/afe2023
+
+Best Regards,
+
+Anambra Fashion Expo 2023 Team ",15th Jan 2024,12:36 AM
+id.sapien@yahoo.com,High,AFE Model Casting Call ,"Model Casting Call
+Thank you for taking the time to register for the Anambra Fashion Expo 2023 Model Call. We are thrilled to have received your information and are excited to review your submission.
+
+Our team will be carefully reviewing all of the applications we receive over the
+next few weeks
+
+Have you followed us on our social media handles?
+
+Remember, one of the prerequisites for qualification is to follow all our social
+media accounts and share all our content using the hashtag #AFE2023
+
+You can follow us on Facebook, Instagram, and Twitter.
+
+Facebook: https://facebook.com/AnambraFashionExpo2023
+Instagram: https://instagram.com/anambrafashionexpo
+Twitter: https://twitter.com/anambrafashion
+
+In the meantime, we encourage you to stay connected and keep an eye out for
+updates about the event. We will be posting!
+
+Note: Create your personalized profile picture (DP) for the Model Casting of the Anambra Fashion Expo 2023
+
+You can create your DP using the following link: https://getdp.co/afe2023
+
+Best Regards,
+
+Anambra Fashion Expo 2023 Team ",5th May 2024,12:28 AM
+elit.pede@hotmail.edu,Low,Affordable American MBA degree ($180month),"Today more than ever you need to upskill and reskill as the global job market gets increasingly competitive. We hope these payment options will bring down any barriers standing in your way. Nexford prides itself on being the most affordable American university in the world.
+
+The Nexford academic model allows you to finish as fast as you want, and the faster you finish, the less you pay. Our tuition fees are calculated monthly ($180/month for an MBA), so the faster you complete your degree the less the degree will cost you. Most students complete our MBA in an average of 18 months (average total cost $3,240). Some completed in 12 to 14 months.
+
+Specialize in the world's hottest sectors like AI, Data Science, Cybersecurity, E-Commerce, etc. Upon graduation, you'll walk away with a specialization certificate on top of your Master's in Business Administration (MBA) degree.  
+
+To find out more about applying to Nexford University, or anything else, sign up and we will be in touch with you.
+
+Nexford University is accredited by the Distance Education Accrediting Commission (DEAC). The DEAC is listed by the U.S. Department of Education as a recognized accrediting agency and is recognized by the Council for Higher Education Accreditation (CHEA)
+
+So what are you waiting for? Join a next-generation university today.",13th Apr 2024,5:51 AM
+semper.egestas@icloud.couk,High,"amazon.com.tr, action needed: Sign-in","
+Logo Image
+Senol Yildirim,
+
+Someone signed-in to your account.
+
+When: Jul 06, 2023 07:34 PM Turkey Time
+Device: Amazon Shopping App for Android
+Near: Manisa, Turkey
+If this was you, you can disregard this message. Otherwise, please let us know.",23rd Apr 2024,9:22 AM
+vitae.nibh@aol.ca,Low,Appen 9 Project Invite - A5655?Request detail 27?Asia Image Collection Project,"Hi,
+
+ 
+
+Thank you for your interest in joining Appen! This email is to officially invite you to a NEW Project on Appen 9 Platform A5655?Request detail 27?Asia Image Collection Project.
+
+ 
+
+To apply for this project, click here to log on Appen Connect, then click here (project link) to opt in to China platform by still using your Appen Connect email address and password.
+
+Your payment will be processed through Appen Connect to your Payoneer account after your work is accepted.
+
+ 
+
+Project Overview:
+
+You are invited to participate in a new image collection and annotation project. We are actively seeking participants who are interested in being the image subjects.
+
+The project seeks to build a large set of annotated images to help machine learning (ML) and artificial intelligence (AI) systems perform more fairly and ethically across a diverse range of people. By participating in this project, your image, demographics, and related annotations (“Your Data”) may be shared publicly so that the broader AI community may develop, train, and evaluate ML and AI software, algorithms, and other technologies. This means that your images would be individually viewable among several thousand other images in the dataset. In addition, your data and images could be published in various media in connection with promotions or publications related to the image dataset. For example, your image could be used as a sample image in an academic paper related to the image dataset or in a blog post or presentation promoting the dataset. Your name and email address will not be shared publicly, and individuals accessing the image set will be contractually. restricted from attempting to re-identify you, along with other reasonable use restrictions.
+
+To participate as an image subject, you must:
+
+? Provide 10 different images of yourself in different poses and attire with a minimum of 1
+
+day between each image
+
+? Provide self-reported demographics (e.g., ancestry, pronoun, nationality, country of
+
+residence, age)
+
+? Provide images taken with a smartphone, DSLR camera, or compact camera with at
+
+least 8-megapixels, manufactured after 2011.
+
+? Read and agree to the project’s informed consent form
+
+? Be at least the age of majority where you reside.
+
+We are looking to pay a range of 3 ($)/row.
+
+Kindly wait for the Project team email as they will reach out to those who will be considered to work on their project.
+
+Note: Sharing photos and other information online is fairly commonplace, however, it’s important to remember the risks when allowing Your Data to be shared online. Once Your Data is made public, it could possibly be used for unauthorized or unintended purposes, such as catfishing or deep fakes or sold to third parties for various purposes, such as targeted advertising or other commercial or political activities. It's important to carefully consider the potential risks before participating in this project.
+
+ 
+
+Project Opt In Guidelines: https://connect.appen.com/qrp/public-files/emails/2023/06/A5655_Image_Collection_NEW_v2.pdf
+
+ 
+
+To find out more about this project or if you have any questions/issues, please contact the project support - yuyang@appen.com with email subject: “A5655?Request detail 27?Asia Image Collection Project”.
+
+ 
+
+We are extremely excited to have you join the Appen 9 Crowd and participate in the Project!
+
+ 
+
+Kind regards,
+
+Appen 9 Support Team
+
+If you have any questions or concerns about this message, please contact support.",18th May 2024,12:49 PM
+mauris.a@google.edu,Low,APPLICATION PROCESS ,"GOOD DAY SIR/MADAM 
+
+ In 2020 I applied to the institution but I didn't know I was accepted for the 2021 Arcademic Year. As I was trying to apply for this year for the past few months but with no success, I noticed that I owe the institution R3280. I kindly please ask for your assistance as I wish to enroll in this Institution for this Academic year 2022.
+
+YOURS SINCERELY 
+RESHOKETSWE SEKHUKHUNE",16th Aug 2024,6:58 AM
+odio.phasellus@icloud.net,High,Are you a luxury traveller or know someone who is??,"View in browser
+
+Are you a luxury traveller or know someone who is?
+We have a task for you on our platform. Don't miss out on your last chance to complete this task!
+
+ $10
+ 12.July.23
+ 10 mins
+You may interview a friend/contact from the US, France, South Korea, UAE and Japan who is a luxury traveller with a salary higher than $150,000 or the equivalent, or you may cold call luxury travel companies and interview their affluent customers. 
+
+Think you're a good match?
+Complete the survey today!
+
+Go to task 
+?
+Available on
+
+
+Great
+
+
+based on 342 reviews
+
+
+
+
+
+
+Copyright © 2023 GrapeData. All rights reserved.
+
+Privacy Policy | Terms of use | Contact
+
+Want to change how you receive these emails?
+
+Unsubscribe from this list 
+
+GrapeData Limited (“GrapeData”) is incorporated in England and Wales under company number 11187265. GrapeData’s registered address is 1 Waterhouse Square, London, EC1N 2ST
+
+
+
+
+",21st Mar 2024,11:02 AM
+lorem.semper@aol.org,Low,Celebrate 15 years of the Bible App!,"How has God used the Bible App to impact your life? Maybe it’s a Verse of the Day that spoke to you in a difficult season, or a prayer that you read at just the right time.
+
+The Bible App has become the world’s most widely used and trusted digital Bible reading tool.
+
+Today, we’re celebrating the Bible App’s 15-year anniversary!
+What started as an idea in an airport security line has become a global movement that’s reaching people everywhere—including you.
+
+Celebrate what God is doing through His Word by reflecting on this special Daily Refresh.",5th May 2024,12:29 AM
+magna.sed.dui@yahoo.net,Low,Changes to our Terms and Conditions and Privacy Notice,"Changes to our Terms and Conditions and Privacy Notice
+Today we updated TIDAL’s Terms and Conditions of Use (“Terms”) to provide information about some of our new product features. In particular, we added the most up-to-date information about Live (Section 5), including relevant limitations. In addition, we removed language related to our Direct Artist Payouts program, which is being discontinued. See here for more information about that.
+In addition, we want to give you advance notice of some additional, upcoming changes to our Terms that will go into effect on April 22, 2023:
+• We are updating language related to how TIDAL and you may resolve disputes, including procedures related to how you may opt-out of binding arbitration;
+• We are clarifying our rights with respect to information or feedback you provide to us about our products, including via our Early Access Program;
+• We are adding clearer language about restrictions on access to our service in countries where we do not formally operate.
+You can see the Terms and Conditions that will go into effect on April 22 here. By continuing to use TIDAL after April 22, you agree to the updated Terms.
+We also updated TIDAL’s Privacy Notice to reflect how we process your personal information if you use our new product features. For example, you can now upload a profile picture, which will be part of your public profile and publicly visible on TIDAL (Section 6.1). If you use our Live feature, some of your data will be visible to other TIDAL users and audiences outside of TIDAL (Section 6.3).
+0",10th Oct 2024,6:59 AM
+arcu.nunc@yahoo.ca,Low,Combating scams in the Discogs Marketplace,"Discogs has recently detected an increase in scammers in the Marketplace, and we’re taking action to address the issue. New sellers on Discogs will undergo a waiting period to reduce fraud attempts.
+
+We are committed to maintaining a safe and trustworthy marketplace for independent buyers and sellers. If you see suspicious activity, please report it immediately to Discogs Support through this form.
+
+Learn more about how to recognize fraud in our guide to best practices for buying safely on Discogs:
+
+Safe Buying Tips",21st Apr 2024,11:35 PM
+et.euismod@hotmail.couk,High,Combating scams in the Discogs Marketplace,"ondiekijohn254,
+Discogs has recently detected an increase in scammers in the Marketplace, and we’re taking action to address the issue. New sellers on Discogs will undergo a waiting period to reduce fraud attempts.
+
+We are committed to maintaining a safe and trustworthy marketplace for independent buyers and sellers. If you see suspicious activity, please report it immediately to Discogs Support through this form.
+
+Learn more about how to recognize fraud in our guide to best practices for buying safely on Discogs:
+
+Safe Buying Tips
+
+Sincerely,
+Discogs",21st Jun 2024,10:36 AM
+pharetra.nam@yahoo.edu,High,Come back and keep earning with Quick Pay Survey,"Quick Pay Survey®  
+  
+ 
+  
+ 
+Hello Anggraeni ,
+
+Remember, we can't hang onto inactive accounts forever! To keep the balance of $3.28 in your Quick Pay Survey® account, you need to visit your account. Logging in today will save your balance from being cleared.
+ 
+Login Now
+ 
+Thanks!
+- The Quick Pay Survey® Team
+  
+ 
+  
+You have received this email because you signed up to be a member of Quick Pay Survey® on January 16, 2023 from 103.144.18.94
+
+We respect your privacy. If you would like to stop receiving messages from Quick Pay Survey®, please Unsubscribe. 
+  
+  
+© 2009 - Present Quick Pay Survey® | Kvieciu g. 4 - 23, Vilnius LT-08438 
+  
+",1st Aug 2024,6:46 PM
+mus.donec.dignissim@yahoo.org,High,Congratulations! You have been selected for a special scholarship from Unicaf ,"Dear Joseph Alex Eze
+ 
+We are pleased to inform you that as part of Unicaf’s 10-year anniversary, you have been selected for a special scholarship which will allow you to study towards a British Master’s degree of your choice for only ?1,950.
+ 
+We are excited to have you join us and believe that this program will provide you with the skills and knowledge you need to succeed in your chosen field. More than 90% of our graduates are in employment or have earned a higher salary.
+ 
+We believe that this opportunity will allow you to pursue your educational goals without the financial burden that accompanies a Master's degree programme. We encourage you to take advantage of this offer and join us in the pursuit of knowledge and academic excellence by replying to this email.
+ 
+To take advantage of this offer please quote to your Adviser the code NG1950.
+ 
+ 
+Sincerely,
+Olusegun Onyinyechi
+Your Scholarship Adviser ",4th Feb 2024,9:15 PM
+magna@protonmail.couk,Low,Customer Service Officer + 19 new jobs - Job Alert from JobStreet.com,"Jobstreet.com
+
+Hi ANGGRAENI, we've got new job recommendations for you.
+Jobstreet.com
+Customer Service Officer
+PT Intisumber Hasil Sempurna Global
+Multiple work locations
+company logo
+Sales Promotor / Merchandiser - Penempatan Surabaya / Bali
+PT Niagamas Lestari Gemilang (Tools, Machinery and Industrial Equipment)
+Multiple work locations
+IDR 4,000,000 - 4,600,000 company logo
+Customer Service (Branch Tarakan)
+PT Bank JTrust Indonesia, Tbk
+Tarakan
+Supportive working environment
+Competitive remuneration package
+Career opportunities
+company logo
+FRONT OFFICE REPRESENTATIVE
+Ungasan Medical Care
+Badung
+Customer Service
+PT Bali Utama Cakrawala
+Bali
+Competitive Salary (Negotiable depend on qualifications)
+Festive Allowance (THR)
+Training & Development
+company logo
+Formalities Officer (Customer Service)
+PT LPS Indonesia
+Jakarta Raya
+IDR 5,500,000 - 7,500,000
+Good and friendly working environment
+Passionate & Energetic Work Culture
+Enjoy a fair work-life balance
+company logo
+KURIR
+Eterli Acrylic
+Lampung
+company logo
+Customer Service Officer
+oma elly kitchen
+Jakarta Raya
+IDR 4,600,000 - 5,750,000
+Career development in Prestigeous Company which is Oma Elly
+---
+---
+company logo
+Customer Service - Operations (Jogja, Contract-based)
+Shopee Internasional Indonesia
+Yogyakarta
+company logo
+Customer Service
+Sinar Mas Land
+Jakarta Raya
+company logo
+Sales Office Administration (Manado)
+PT Asuransi Jiwa Sinarmas MSIG Tbk.
+Manado
+company logo
+Penjahit
+Balqis Humaira
+Surabaya
+ADMIN PENJUALAN DAN PERPAJAKAN
+PT Berkat Energi Sinar Timur
+Surabaya
+Customer Service
+PT Bank Ina Perdana Tbk
+Jakarta Raya
+company logo
+ADMIN
+AYURA CLINIC
+Jawa Timur
+Front office Leader
+Hotel Quirin
+Semarang
+company logo
+Admin Sales
+PT Conbloc Indonesia Persada
+Surabaya
+company logo
+CUSTOMER SERVICE
+Ti-e-nette Dressing Room
+Yogyakarta
+company logo
+FRONTLINER
+JAYA UTAMA CELLULAR
+Madiun
+Customer service
+Cengkareng Rezeki Abadi
+Banten
+IDR 4,000,000 - 4,500,000 company logo
+View more jobs
+Edit this alert    Unsubscribe    Help
+Connect with JobStreet
+
+  
+
+ 
+Privacy Statement   Terms and Conditions
+This email was sent to you as a registered user of www.jobstreet.com
+
+
+Copyright © 1998-2023, JobStreet. All rights reserved.
+",6th Jan 2024,5:46 AM
+sem.semper@protonmail.edu,Low,denis : Your Amazon Prime Membership Cancellation,"Your Amazon Prime free trial has been cancelled.
+
+
+
+Amazon.com 
+
+Your Amazon    |  Today's Deals    |  Gift Cards
+
+
+
+
+Hello denis,
+
+When you sign up for an Amazon Prime free trial, we require a valid card to ensure that your membership can upgrade to a paid plan at the end of the trial period. There is an outstanding issue with the credit card you provided and we cannot charge you for the annual membership fee. As a result, your Amazon Prime free trial has been canceled.
+
+If you'd like to join Amazon Prime again, start a paid membership by signing-up during checkout or visiting the Amazon Prime page.
+
+Thank you,
+
+Amazon.com Customer Service
+
+
+
+  Start a New Prime Membership   
+
+
+
+
+© Amazon.com, Inc. or its affiliates. All rights reserved. Amazon, Amazon.com, Prime, the Amazon.com logo and 1-Click are registered trademarks of Amazon.com, Inc. or its affiliates. Amazon.com, 410 Terry Avenue N., Seattle, WA 98109-5210.
+
+This message was sent to: denis.supermen888@gmail.com
+
+
+",16th Jul 2024,12:37 PM
+first89@disipulo.com,Low,Do you have $7 Walid?,"Hello Walid,
+
+Do you have $7?
+
+I ask because I'm about to do something STUPID.
+
+The thing is, what I'm about to offer you isn't just amazing, it's totally CRAZY.
+
+Here's the deal:
+
+Pay $7 and I'll give you $177 back.
+
+Seriously, as if that wasn't good enough value, the products you'll get have the potential to create you a $7000 a month income!
+
+See exactly what you get for you $7 HERE.
+
+Regards,
+
+Charlie",5th May 2024,6:46 PM
+axslhgroup@disipulo.com,High,English,"How has God used the Bible App to impact your life? Maybe it’s a Verse of the Day that spoke to you in a difficult season, or a prayer that you read at just the right time.
+
+The Bible App has become the world’s most widely used and trusted digital Bible reading tool.
+
+Today, we’re celebrating the Bible App’s 15-year anniversary!
+What started as an idea in an airport security line has become a global movement that’s reaching people everywhere—including you.
+
+Celebrate what God is doing through His Word by reflecting on this special Daily Refresh.",10th Oct 2024,9:15 PM
+sammyg@tringuyen.live,Low,English,"Where Live Happens ??
+The Live party is just getting started. Get HiFi or HiFi Plus to join your fave DJs, celebs, music fans, and our TIDAL music experts on Live.",15th Jan 2024,5:46 AM
+kostybogov@mrdmn.com,Low,English,"Hello Walid,
+
+Our Zoom call meeting is tomorrow - Thursday, July 20th at 3pm EST (New York time).
+
+Register for your free space here
+
+It's called ""Money While You Sleep"".
+
+You'll learn how it's possible to earn an income, automatically, 24 hours a day (yes, even while you sleep!).
+
+The host will reveal this little-known, almost secret, side hustle income which is enabling ordinary people - just like you and me - to make $5000+ per month from working just 3-4 hours per week.
+
+The host will explain, step-by-step, how you can easily ""clone"" this simple yet highly profitable side hustle for yourself.
+
+- No experience or special skills needed
+- Quick and easy to get up and running
+- All you need is internet access
+
+Due to technical limitations, only a certain number of participants can attend. So if you'd like to attend this special Zoom call (it's FREE), then click the link below.
+
+Register for your free space here
+
+Regards,
+
+Alex",26th Feb 2024,6:58 AM
+dan26@naverly.com,Low,Feedback Request: How are we doing?,"Share your Respondent feedback
+Your feedback means the world to us. If you don't mind, please take a minute to tell us how we're doing. Thank you!
+
+How likely are you to recommend
+Respondent to a friend or colleague?0: Not at all likely 10: Extremely likely 
+Respondent, Inc.   PO Box 4668 #57891    New York,  New York   10163   
+
+Update your email preferences to choose the types of emails you receive.
+
+",6th Jan 2024,11:02 AM
+sashina82@dmxs8.com,High,Flowing with the markets,"Welcome to our second weekly newsletter.
+
+ 
+
+This week’s edition:
+
+??The featured instruments are Indices
+
+? Traders pop quiz
+
+??? Latest podcast episodes 
+
+?? Free classes sign up
+
+?? Links to even more online resources
+
+This week's featured instruments - Indices
+
+ 
+
+This week we focus on Index instruments that have blown the charts in the last couple of months. Traders usually diversify their holdings on currency instruments with commodities, stocks and Index instruments. Index instruments include a basket of stocks picked based on the sector, capitalization, or regions. Major Indices from renowned global markets offered at FXPesa include Nasdaq (UT100), Standards and Poor 500 (US500) and Dow Jones (US30) traded at NYSE.
+
+ 
+
+S&P500 has been rising since the beginning of the year with more than 15%, as well as Nasdaq pumping to above 30%. The two indices prove the adage that time in the market surpasses timing the market. Recent moves will show fluctuations, but long-term trend shows consistent gains in indices.",16th Jul 2024,12:49 PM
+medic6412@xxx-tower.net,Low,Get ready for Test [Co-Deo],"Hello Sathya,
+
+You have been invited to participate in a video discussion for Co-Deo community.
+Below are the details of the event.
+
+Discussion name: Test
+
+Date and time: Jun 30 2023, 15:18 - Jun 30 2023, 19:18 (Atlantic/St_Helena)
+
+Video Discussion Link: Join Meeting
+
+
+We look forward to your participation in the discussion.
+
+Thank you,
+
+Co-Deo",5th May 2024,12:28 AM
+rtggtrg@winsuprayogi.com,Low,Get the Competitive Edge: ?? Project-Winning Strategies Revealed,"Hi Taiwo
+
+We're just over halfway through the year and we thought we'd check in on how things are going for you.
+
+Have you been successful in winning projects and earning more compared to last year? Or are you still working towards that first big win?
+
+ 
+
+No matter where you are in your journey, we've got something exciting for you. We're bringing you three new videos from our top freelancer, Matt Starky. These videos are packed with valuable tips and tricks that will benefit both beginners and those who already have 50 projects under their belts. Matt shares his proven strategies to win projects, even if you lack certain skills.
+
+ 
+
+By incorporating some of these methods into your own routine for winning projects, you'll be on the fast track to becoming your own boss as a freelancer",10th Oct 2024,5:51 AM
+olga174lisova@yotomail.com,Low,Get the Competitive Edge: ?? Project-Winning Strategies Revealed,"Hi rehan
+
+ 
+
+We're just over halfway through the year and we thought we'd check in on how things are going for you.
+
+ 
+
+Have you been successful in winning projects and earning more compared to last year? Or are you still working towards that first big win?
+
+ 
+
+No matter where you are in your journey, we've got something exciting for you. We're bringing you three new videos from our top freelancer, Matt Starky. These videos are packed with valuable tips and tricks that will benefit both beginners and those who already have 50 projects under their belts. Matt shares his proven strategies to win projects, even if you lack certain skills.
+
+ 
+
+By incorporating some of these methods into your own routine for winning projects, you'll be on the fast track to becoming your own boss as a freelancer.",13th Apr 2024,9:22 AM
+fererfer@gmail.com,High,Gut Health & Weight Loss Plan - Role of Supplement,"Hi Maryam,,
+
+Please find the information on the role of the supplements we take during the program.
+
+The Supplements are high quality nutritional support assisting to Heal & Repair our Gut. The three key reasons we have the supplements are:
+
+- The primary reason is to balance your hormones – particularly your insulin levels. (Insulin being responsible for fat uptake in the cells – especially your liver cells). Once your hormones are balanced your body can in fact learn to lose weight and efficiently, and keep it off. As well as with the weight loss you will find your moods become much more stable, anxiety levels decrease, your skin becomes clearer, your head and your thoughts become clearer, and your energy levels will soar (no more naps in the afternoon – it’s very liberating).
+
+- Secondly the nutrition is responsible for cleaning your Gut. The vast majority of illnesses today stem from poor gut flora. Our program will clean up your Gut, allow your villae (finger-like protrusions on the inner wall of your intestine responsible for increasing the surface area for absorption of nutrients into your bloodstream) to stand up and work to their full potential.
+
+- Thirdly, the nutrition is responsible for keeping your skin’s elasticity after the weight loss. (This does depend on how much weight you need to lose, we have had some people lose 60-80kg, and as a result they may need further assistance and treatment for their skin)
+
+This is why supplements are important. The nutrition in the supplements is responsible for supporting your gut. Our program will support your gut, allow your villae (finger-like protrusions on the inner wall of your intestine responsible for increasing the surface area for absorption of nutrients into your blood stream) to stand up and work to their full potential.
+
+The supplements we use for the program are manufactured by M?dere which is well known for using superior products. Their stringent testing is commendable. M?dere products also have a massive absorption rate, up to 90%. Their products work in synergy with each other, which is the reason they are so effective. And they’re all toxin and chemical free, plant based and most importantly they are not weight loss medicines.
+
+This program is a gut-healing program that is extremely successful in such a short time frame due to the synergy between the high absorption quality supplements & the alkaline meal plan. They work hand in hand so that you don’t cause long-term damage & nutritional deficiencies. The awesome results you achieve are because the incredible nutrition works so well with our Alkaline meal plan.
+
+Let me know if you’ve got any questions!
+
+Thanks & Regards",23rd Apr 2024,1:54 PM

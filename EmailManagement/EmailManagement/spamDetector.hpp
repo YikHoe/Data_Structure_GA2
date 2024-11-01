@@ -27,7 +27,7 @@ public:
 	spamDetector();
 	~spamDetector();
 	void insert(string word, int weight);
-	int detectSpam(const string& text);
+	bool detectSpam(const string& text);
 };
 
 

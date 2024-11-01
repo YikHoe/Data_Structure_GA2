@@ -153,31 +153,31 @@ int main() {
     spamDetector sDec;
     loadSpamWords(sDec, "spamWords.txt");
 
-    //int choice; 
-    //while (true) {
-    //    displayInbox(emailInbox);
+    int choice; 
+    while (true) {
+        displayInbox(emailInbox);
 
-    //    cout << "\nEnter the row number to view an email, or 0 to quit: ";
-    //    cin >> choice; 
+        cout << "\nEnter the row number to view an email, or 0 to quit: ";
+        cin >> choice; 
 
-    //    // Check for invalid input
-    //    if (cin.fail()) {
-    //        cin.clear();
-    //        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    //        cout << "Invalid choice. Please enter a number.\n";
-    //        continue;
-    //    }
+        // Check for invalid input
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid choice. Please enter a number.\n";
+            continue;
+        }
 
-    //    // Exit if user chooses 0
-    //    if (choice == 0) break;
-    //    // Display the selected email if the choice is valid
-    //    else if (choice > 0 && choice <= emailInbox.getInboxSize()) {
-    //        selectAndDisplayEmail(emailInbox, choice);
-    //    }
-    //    else {
-    //        cout << "Invalid choice. Please try again." << endl; 
-    //    }
-    //}
+        // Exit if user chooses 0
+        if (choice == 0) break;
+        // Display the selected email if the choice is valid
+        else if (choice > 0 && choice <= emailInbox.getInboxSize()) {
+            selectAndDisplayEmail(emailInbox, choice);
+        }
+        else {
+            cout << "Invalid choice. Please try again." << endl; 
+        }
+    }
 
     cout << "Exiting program." << endl; 
     return 0;

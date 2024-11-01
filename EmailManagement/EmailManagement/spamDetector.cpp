@@ -33,7 +33,7 @@ void spamDetector::insert(string word, int weight) {
     sizeCnt++;
 }
 
-int spamDetector::detectSpam(const string& text) {
+bool spamDetector::detectSpam(const string& text) {
     int currentSusScore = 0;
 
     for (int i = 0; i < sizeCnt; i++) {
@@ -42,6 +42,12 @@ int spamDetector::detectSpam(const string& text) {
         }
     }
 
-    return currentSusScore;
+    if (currentSusScore > 10) {
+        return true;
+    }
+    else {
+        return false;
+    }
+
 }
 
