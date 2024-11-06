@@ -43,8 +43,8 @@ void spamDetector::push(string word, int weight) {
 
 void spamDetector::pop() {
     if (!isEmpty()) {
-        sw[sizeCnt].word = "";
-        sw[sizeCnt].susWeight = 0;
+        sw[sizeCnt - 1].word = "";
+        sw[sizeCnt - 1].susWeight = 0;
         sizeCnt--;
         return;
     }
@@ -58,24 +58,10 @@ spamWords* spamDetector::getTop() {
         return nullptr;
     }
 
-    return &sw[sizeCnt];
+    return &sw[sizeCnt - 1];
 }
 
-bool spamDetector::detectSpam(const string& text) {
-    int currentSusScore = 0;
-
-    for (int i = 0; i < sizeCnt; i++) {
-        if (text.find(sw[i].word) != string::npos) {
-            currentSusScore += sw[i].susWeight;
-        }
-    }
-
-    if (currentSusScore > 10) {
-        return true;
-    }
-    else {
-        return false;
-    }
-
+int spamDetector::getSize() {
+    return sizeCnt;
 }
 

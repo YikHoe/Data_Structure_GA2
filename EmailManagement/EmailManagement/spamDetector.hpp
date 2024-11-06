@@ -27,11 +27,11 @@ public:
 	spamDetector();
 	~spamDetector();
 	void push(string word, int weight);
-	spamWords* getTop();
 	void pop();
+	spamWords* getTop();
+	int getSize();
 	bool isFull();
 	bool isEmpty();
-	bool detectSpam(const string& text);
 };
 
 

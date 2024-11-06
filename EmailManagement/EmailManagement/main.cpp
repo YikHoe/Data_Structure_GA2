@@ -108,10 +108,42 @@ void selectAndDisplayEmail(InboxManagement& emailInbox, int choice) {
 	}
 }
 
+bool detectSpam(const string& text, spamDetector& detector) {
+	int spamScore = 0;
+
+	// Temporary stack to store elements while checking spam words
+	spamDetector tempStack;
+
+	// Loop through the stack, detecting spam words and preserving the stack state
+	while (!detector.isEmpty()) {
+		spamWords* current = detector.getTop();
+		if (text.find(current->word) != string::npos) {
+			spamScore += current->susWeight;
+		}
+		// Move the word to the temp stack
+		tempStack.push(current->word, current->susWeight);
+		detector.pop();
+	}
+
+	// Restore original stack from tempStack
+	while (!tempStack.isEmpty()) {
+		spamWords* top = tempStack.getTop();
+		detector.push(top->word, top->susWeight);
+		tempStack.pop();
+	}
+
+	if (spamScore > 10) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 void preprocessEmail(InboxManagement& emailInbox, LinkedListQueue& emailQueue, spamDetector& detector) {
 	while (!emailQueue.isEmpty()) {
 		Email email = emailQueue.dequeue();
-		if (detector.detectSpam(email.content)) {
+		if (detectSpam(email.content, detector)) {
 			email.isSpam = true;
 		}
 		emailInbox.pushEmail(email);
@@ -144,6 +176,10 @@ void displayMainMenu() {
 	cout << "2. Outbox Management\n";
 	cout << "3. Quit\n";
 	cout << "Please select an option: ";
+}
+
+void spamEmailManagement(InboxManagement& emailInbox) {
+
 }
 
 void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
@@ -207,6 +243,18 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 
 		case 5: {
 			emailInbox.displayInbox(true);
+			int row;
+			cout << "Enter the row number to view the email: ";
+			cin >> row;
+			if (cin.fail() || row <= 0 || row > emailInbox.getInboxSize()) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "Invalid row number. Please try again.\n";
+			}
+			else {
+				selectAndDisplayEmail(emailInbox, row);
+
+			}
 			break;
 		}
 
