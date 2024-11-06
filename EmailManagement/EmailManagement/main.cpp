@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include "InboxManagementUsingLLStack.hpp"
+#include "OutboxManagement.hpp"
 #include "spamDetector.hpp"
 #include "LinkedListQueue.hpp"
 
@@ -14,7 +15,7 @@ string readQuotedField(ifstream& file) {
 	char ch;
 	file.get(ch); // Read the starting quote
 
-	// Read characters until the closing quote followed by a comma is found
+	// Read characters until the closing quote followed by a comma iss found
 	while (file.get(ch)) {
 		if (ch == '"' && file.peek() == ',') {
 			file.get(); // Consume the comma after the closing quote
@@ -53,7 +54,7 @@ void loadEmailsFromFile(LinkedListQueue& emailQueue, const string& filename) {
 		if (sender.empty()) break;
 
         // Create a new Email object and push it onto the inbox
-        Email newEmail = { sender, priority, subject, content, dateReceived, timeReceived, false };
+        Email newEmail = { sender, priority, subject, content, dateReceived, timeReceived, "", false};
         emailQueue.enQueue(newEmail);
     }
 }
@@ -219,10 +220,95 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 	}
 }
 
+
+void outboxManagement(InboxManagement& emailInbox, OutboxManagement& emailOutbox) {
+	int choice;
+
+	while (true) {
+		cout << "\n=== Inbox Management ===\n";
+		cout << "1. Display Outbox\n";
+		cout << "2. Display Draft\n";
+		cout << "3. Reply an Email\n";
+		cout << "4. Create New Emails\n";
+		cout << "5. Sent All Draft Emails\n";
+		cout << "6. Return to Main Menu\n";
+		cout << "Please select an option: ";
+		cin >> choice;
+
+		//if (cin.fail()) {
+		//	cin.clear();
+		//	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		//	cout << "Invalid input. Please enter a valid number.\n";
+		//	continue;
+		//}
+
+		switch (choice) {
+		case 1:
+			//Call display sent email function here
+			emailOutbox.displaySentEmails();
+			break;
+
+		case 2:
+			//Display draft using LLQueue
+			emailOutbox.displayQueue();
+			break;
+
+		case 3: 
+			int emailChoice;
+			emailInbox.displayInbox();
+			cout << "\nEnter the row number to reply an email: ";
+			cin >> emailChoice;
+
+			//int emailChoice;
+			//emailQueue.displayQueue();
+			//cout << "\nEnter the row number to view an email: ";
+			//cin >> emailChoice;
+
+			if (cin.fail() || emailChoice <= 0 || emailChoice > emailInbox.getInboxSize()) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "Invalid choice. Please try again.\n";
+			}
+			else {
+				emailOutbox.displayQueue(emailChoice);
+			}
+			break;
+		
+
+		case 4:
+			cout << "\nCreating New Email... \n";
+			emailOutbox.addNewEmail();
+			break;
+
+		case 5:
+			cout << "\Sending All Email... \n";
+			emailOutbox.sentAllDraft();
+
+
+		case 6:
+			//Check if got email to upload, if yes ask to upload
+			if (true) {
+				bool sentEmail;
+				cout << "There are email draft, do you want to send it?" << endl;
+				cin >> sentEmail;
+				if (sentEmail) {
+					//emailQueue.sendNewEmail();
+				}
+			}
+			return;
+			
+
+		default:
+			cout << "Invalid option. Please select a number between 1 and4.\n";
+		}
+	}
+}
+
 int main() {
 	// Inbox management init
     InboxManagement emailInbox("Email Stack");
 	LinkedListQueue emailQueue("Email Queue");
+	OutboxManagement emailOutbox("Email Outbox");
     spamDetector sDec;
 
     loadEmailsFromFile(emailQueue, "DummyEmails.csv"); // load all emails into queue for preprosessing
@@ -248,8 +334,7 @@ int main() {
 			break;
 
 		case 2:
-			cout << "\n=== Outbox Management ===\n";
-			cout << "This feature is under construction.\n";
+			outboxManagement(emailInbox, emailOutbox);
 			break;
 
 		case 3:

@@ -134,6 +134,8 @@
   <ItemGroup>
     <ClInclude Include="LinkedListQueue.hpp" />
     <ClInclude Include="LinkedListStack.hpp" />
+    <ClInclude Include="OutboxManagement.hpp" />
+    <ClInclude Include="SentOutboxManagement.hpp" />
     <ClInclude Include="spamDetector.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
