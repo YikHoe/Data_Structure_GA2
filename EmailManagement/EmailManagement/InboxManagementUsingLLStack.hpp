@@ -7,6 +7,7 @@
 #include <fstream>
 #include <string>
 #include "LinkedListStack.hpp"
+#include "spamDetector.hpp"
 
 using namespace std;
 
@@ -23,7 +24,8 @@ struct Email {
 // Class to manage inbox using a linked list stack
 class InboxManagement {
 private:
-    LinkedListStack<Email> inboxStack; 
+    LinkedListStack<Email> inboxStack;
+    string stackName;
 
     // Convert a string representation of a number to an integer
     int stringToInt(const string& str) {
@@ -113,6 +115,14 @@ private:
     }
 
 public:
+    InboxManagement(string stackName) {
+        this->stackName = stackName;
+    }
+
+    ~InboxManagement() {
+        cout << stackName << " has been deleted from memory" << endl;
+    }
+
     // Display the details of an email
     void displayEmail(const Email& email) {
         cout << "From: " << email.sender << endl;
@@ -179,7 +189,7 @@ public:
     // Remove the most recent email from the inbox
     void popRecentEmail() {
         if (!inboxStack.isEmpty()) {
-            inboxStack.pop(); 
+            inboxStack.pop();
         }
         else {
             cout << "Inbox is empty!" << endl; 
@@ -190,6 +200,55 @@ public:
     // Get the number of emails in the inbox
     int getInboxSize() {
         return inboxStack.getSize();
+    }
+
+    void displayInbox(bool forSpam = false) {
+        if (inboxStack.isEmpty()) {
+            cout << "End of stack" << endl;
+            return;
+        }
+
+        cout << left << setw(5) << "No"
+            << setw(40) << "Sender"
+            << setw(10) << "Priority"
+            << setw(100) << "Subject"
+            << setw(20) << "Date Received"
+            << setw(10) << "Time Received" << endl;
+        cout << string(200, '-') << endl;
+
+        int currentRow = 1;
+        LinkedListStack<Email> temp;
+
+        while (!inboxStack.isEmpty()) {
+            Email currentEmail = inboxStack.getTop();
+            if (forSpam) {
+                if (currentEmail.isSpam) {
+                    cout << left << setw(5) << currentRow
+                        << setw(40) << currentEmail.sender
+                        << setw(10) << currentEmail.priority
+                        << setw(100) << currentEmail.subject
+                        << setw(20) << currentEmail.dateReceived
+                        << setw(10) << currentEmail.timeReceived << endl;
+                }
+            }
+            else {
+                cout << left << setw(5) << currentRow
+                    << setw(40) << currentEmail.sender
+                    << setw(10) << currentEmail.priority
+                    << setw(100) << currentEmail.subject
+                    << setw(20) << currentEmail.dateReceived
+                    << setw(10) << currentEmail.timeReceived << endl;
+            }
+            currentRow++;
+            temp.push(currentEmail);
+            inboxStack.pop();
+        }
+
+        while (!temp.isEmpty()) {
+            Email currentEmail = temp.getTop();
+            inboxStack.push(currentEmail);
+            temp.pop();
+        }
     }
 };
 

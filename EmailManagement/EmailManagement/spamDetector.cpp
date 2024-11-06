@@ -23,14 +23,42 @@ void spamDetector::resize() {
     sw = newArray;
 }
 
-void spamDetector::insert(string word, int weight) {
-    if (sizeCnt == cap) {
+bool spamDetector::isFull() {
+    return sizeCnt == INT_SIZE;
+}
+
+bool spamDetector::isEmpty() {
+    return sizeCnt == 0;
+}
+
+void spamDetector::push(string word, int weight) {
+    if (isFull()) {
         resize();
     }
 
     sw[sizeCnt].word = word;
     sw[sizeCnt].susWeight = weight;
     sizeCnt++;
+}
+
+void spamDetector::pop() {
+    if (!isEmpty()) {
+        sw[sizeCnt].word = "";
+        sw[sizeCnt].susWeight = 0;
+        sizeCnt--;
+        return;
+    }
+
+    cout << "Stack Underflow!" << endl;
+}
+
+spamWords* spamDetector::getTop() {
+    if (isEmpty()) {
+        cout << "Stack is empty!" << endl;
+        return nullptr;
+    }
+
+    return &sw[sizeCnt];
 }
 
 bool spamDetector::detectSpam(const string& text) {

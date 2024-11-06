@@ -74,48 +74,11 @@ void loadSpamWords(spamDetector& detector, const string& filename) {
             string word = line.substr(0, delimPos);
             int susWeight = stoi(line.substr(delimPos + 1));
 
-            detector.insert(word, susWeight);
+            detector.push(word, susWeight);
         }
     }
 
     file.close();
-}
-
-// Function to display the inbox in a formatted table
-void displayInbox(InboxManagement& emailInbox) {
-	LinkedListStack<Email> tempStack; // Temporary stack to hold emails
-	int rowNumber = 1;
-
-	// Print header for the email display
-	cout << left << setw(5) << "No"
-		<< setw(40) << "Sender"
-		<< setw(10) << "Priority"
-		<< setw(100) << "Subject"
-		<< setw(20) << "Date Received"
-		<< setw(10) << "Time Received" << endl;
-	cout << string(200, '-') << endl;
-
-	// Loop through the inbox to display emails
-	while (!emailInbox.isInboxEmpty()) {
-		Email email = emailInbox.viewRecentEmail(); // Get the most recent email
-		emailInbox.popRecentEmail(); // Remove it from the inbox
-
-		// Print email details in a formatted row
-		cout << left << setw(5) << rowNumber++
-			<< setw(40) << email.sender
-			<< setw(10) << email.priority
-			<< setw(100) << email.subject
-			<< setw(20) << email.dateReceived
-			<< setw(10) << email.timeReceived << endl;
-
-		tempStack.push(email); // Push email onto temporary stack
-	}
-
-	// Restore the emails back to the inbox stack
-	while (!tempStack.isEmpty()) {
-		emailInbox.pushEmail(tempStack.getTop());
-		tempStack.pop();
-	}
 }
 
 // Function to select and display a specific email based on user choice
@@ -206,23 +169,16 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 
 		switch (choice) {
 		case 1:
-			emailQueue.displayQueue();
+			emailInbox.displayInbox();
 			break;
 
 		case 2: {
 			int emailChoice;
-			emailQueue.displayQueue();
+			emailInbox.displayInbox();
 			cout << "\nEnter the row number to view an email: ";
 			cin >> emailChoice;
 
-			if (cin.fail() || emailChoice <= 0 || emailChoice > emailInbox.getInboxSize()) {
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
-				cout << "Invalid choice. Please try again.\n";
-			}
-			else {
-				emailQueue.displayQueue(emailChoice);
-			}
+			selectAndDisplayEmail(emailInbox, emailChoice);
 			break;
 		}
 
@@ -250,8 +206,7 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 		}
 
 		case 5: {
-			moveStackToQueue(emailInbox, emailQueue);
-			emailQueue.displaySpamEmail();
+			emailInbox.displayInbox(true);
 			break;
 		}
 
@@ -266,7 +221,7 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 
 int main() {
 	// Inbox management init
-    InboxManagement emailInbox; 
+    InboxManagement emailInbox("Email Stack");
 	LinkedListQueue emailQueue("Email Queue");
     spamDetector sDec;
 
