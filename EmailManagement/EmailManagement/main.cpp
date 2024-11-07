@@ -3,7 +3,11 @@
 #include <fstream>
 #include <string>
 #include "InboxManagementUsingLLStack.hpp"
+#include "OutboxManagement.hpp"
+#include "SentOutboxManagement.hpp"
 #include "spamDetector.hpp"
+
+
 #include "LinkedListQueue.hpp"
 
 using namespace std;
@@ -14,7 +18,7 @@ string readQuotedField(ifstream& file) {
 	char ch;
 	file.get(ch); // Read the starting quote
 
-	// Read characters until the closing quote followed by a comma is found
+	// Read characters until the closing quote followed by a comma iss found
 	while (file.get(ch)) {
 		if (ch == '"' && file.peek() == ',') {
 			file.get(); // Consume the comma after the closing quote
@@ -53,7 +57,7 @@ void loadEmailsFromFile(LinkedListQueue& emailQueue, const string& filename) {
 		if (sender.empty()) break;
 
         // Create a new Email object and push it onto the inbox
-        Email newEmail = { sender, priority, subject, content, dateReceived, timeReceived, false };
+        Email newEmail = { sender, priority, subject, content, dateReceived, timeReceived, "", false};
         emailQueue.enQueue(newEmail);
     }
 }
@@ -139,6 +143,31 @@ bool detectSpam(const string& text, spamDetector& detector) {
 		return false;
 	}
 }
+
+void replySpecifyEmail(InboxManagement& emailInbox, int choice, OutboxManagement& emailOutbox) {
+	LinkedListStack<Email> tempStack; // Temporary stack to hold emails
+	int rowNumber = 1; // Row number for selection
+
+	// Loop through the inbox until the desired email is reached
+	while (!emailInbox.isInboxEmpty() && rowNumber <= choice) {
+		Email selectedEmail = emailInbox.viewRecentEmail(); // Get the most recent email
+		emailInbox.popRecentEmail(); // Remove it from the inbox
+
+		// If the current row matches the user's choice, display the email
+		if (rowNumber == choice) {
+			//Pass the email sender, and subject into create new email function
+			emailOutbox.addNewEmail(selectedEmail.sender, selectedEmail.subject);
+		}
+
+		tempStack.push(selectedEmail); // Push email onto temporary stack
+		rowNumber++;
+	}
+
+	// Restore the emails back to the inbox stack
+	while (!tempStack.isEmpty()) {
+		emailInbox.pushEmail(tempStack.getTop());
+		tempStack.pop();
+	}
 
 void preprocessEmail(InboxManagement& emailInbox, LinkedListQueue& emailQueue, spamDetector& detector) {
 	while (!emailQueue.isEmpty()) {
@@ -303,10 +332,128 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 	}
 }
 
+
+void outboxManagement(InboxManagement& emailInbox, OutboxManagement& emailOutbox, SentOutboxManagement& emailSent) {
+	int choice;
+
+	while (true) {
+		cout << "\n=== Outbox Management ===\n";
+		cout << "1. Display Outbox\n";
+		cout << "2. View Specify Outbox\n";
+		cout << "3. Display Draft\n";
+		cout << "4. Reply an Email\n";
+		cout << "5. Create New Emails\n";
+		cout << "6. Sent All Draft Emails\n";
+		cout << "7. Return to Main Menu\n";
+		cout << "Please select an option: ";
+		cin >> choice;
+
+		if (cin.fail()) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "Invalid input. Please enter a valid number.\n";
+			continue;
+		}
+
+		switch (choice) {
+		case 1:
+			//Call display sent email function here
+			emailOutbox.displaySentEmails();
+			break;
+
+		case 2:
+			if (!emailOutbox.isSentOutboxEmpty()) {
+				while (true) {
+					int emailChoice;
+					emailOutbox.displaySentEmails();
+					cout << "\Select the row number to view outbox detail: ";
+					cin >> emailChoice;
+					if (cin.fail() || emailChoice <= 0 || emailChoice > emailInbox.getInboxSize()) {
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout << "Invalid choice. Please try again.\n";
+					}
+					else {
+						emailOutbox.displayEmailDetails(emailChoice);
+						break;
+					}
+				}
+			}
+			else {
+				cout << "The outbox is empty!" << endl;
+			}
+			break;
+
+		case 3:
+			//Display draft using LLQueue
+			emailOutbox.displayQueue();
+			break;
+
+		case 4: 
+			while (true) {
+				int replyChoice;
+				emailInbox.displayInbox();
+				cout << "\nEnter the row number to reply an email: ";
+				cin >> replyChoice;
+
+
+				if (cin.fail() || replyChoice <= 0 || replyChoice > emailInbox.getInboxSize()) {
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout << "Invalid choice. Please try again.\n";
+				}
+				else {
+					replySpecifyEmail(emailInbox, replyChoice, emailOutbox);
+					break;
+				}
+			}
+			break;
+
+		case 5:
+			cout << "\nCreating New Email... \n";
+			emailOutbox.addNewEmail();
+			break;
+
+		case 6:
+			cout << "\Sending All Email... \n";
+			emailOutbox.sentAllDraft();
+			break;
+
+		case 7:
+			//Check if got email to upload, if yes ask to upload
+			if (!emailOutbox.isEmpty()) {
+				while (true) {
+					string sentEmail;
+					cout << "There are email draft, do you want to send it? (y/n)" << endl;
+					cin >> sentEmail;
+					if (sentEmail == "y") {
+						emailOutbox.sentAllDraft();
+						break;
+					}
+					else if (sentEmail == "n") {
+						break;
+					}
+					else {
+						cout << "Please select 'y' for yes or 'n' for no." << endl;
+					}
+				}
+			}
+			return;
+			
+
+		default:
+			cout << "Invalid option. Please select a number between 1 and6.\n";
+			break;
+		}
+	}
+}
+
 int main() {
 	// Inbox management init
     InboxManagement emailInbox("Email Stack");
 	LinkedListQueue emailQueue("Email Queue");
+	OutboxManagement emailOutbox("Email Outbox");
+	SentOutboxManagement emailSent;
     spamDetector sDec;
 
     loadEmailsFromFile(emailQueue, "DummyEmails.csv"); // load all emails into queue for preprosessing
@@ -332,8 +479,7 @@ int main() {
 			break;
 
 		case 2:
-			cout << "\n=== Outbox Management ===\n";
-			cout << "This feature is under construction.\n";
+			outboxManagement(emailInbox, emailOutbox, emailSent);
 			break;
 
 		case 3:

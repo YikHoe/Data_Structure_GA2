@@ -129,11 +129,16 @@
   <ItemGroup>
     <ClCompile Include="InboxManagementUsingLLStack.hpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OutboxManagement.cpp" />
+    <ClCompile Include="SentOutboxManagement.cpp" />
     <ClCompile Include="spamDetector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkedListQueue.hpp" />
     <ClInclude Include="LinkedListStack.hpp" />
+    <ClInclude Include="OutboxManagement.hpp" />
+    <ClInclude Include="OutboxStruct.hpp" />
+    <ClInclude Include="SentOutboxManagement.hpp" />
     <ClInclude Include="spamDetector.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
