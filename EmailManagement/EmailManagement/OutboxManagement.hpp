@@ -41,6 +41,7 @@ public:
     ~OutboxManagement();
 
     bool isEmpty();
+    bool isSentOutboxEmpty();
     void enQueue(OutgoingEmail email);
     outgoingQueueNode* deQueue(int itemNo);
     OutgoingEmail dequeue();
@@ -48,6 +49,7 @@ public:
     void displayQueue(int rowNumber = -1);
     void sentAllDraft();
     void displaySentEmails();
+    void displayEmailDetails(int rowNumber);
     void addToDraft(OutgoingEmail email);
     void addNewEmail(string receiver = "", string subject = "");
 };

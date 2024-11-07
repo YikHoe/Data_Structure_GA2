@@ -106,13 +106,12 @@ void OutboxManagement::displayQueue(int rowNumber) {
     }
 
     if (rowNumber == -1) {
+        // Display table header
         cout << left << setw(5) << "No"
-            << setw(40) << "Sender"
+            << setw(40) << "Sent To"
             << setw(10) << "Priority"
-            << setw(100) << "Subject"
-            << setw(20) << "Date Received"
-            << setw(10) << "Time Received" << endl;
-        cout << string(200, '-') << endl;
+            << setw(100) << "Subject" << endl;
+        cout << string(155, '-') << endl;  // Adjust the length to match the width of the header
     }
 
     int currentRow = 1;
@@ -122,21 +121,18 @@ void OutboxManagement::displayQueue(int rowNumber) {
     while (current) {
         if (rowNumber == -1 || currentRow == rowNumber) {
             if (rowNumber == -1) {
+                // Display rows for all emails
                 cout << left << setw(5) << currentRow
-                    << setw(40) << current->email.sender
+                    << setw(40) << current->email.receiver
                     << setw(10) << current->email.priority
-                    << setw(100) << current->email.subject
-                    << setw(20) << current->email.dateSend
-                    << setw(10) << current->email.timeSend << endl;
+                    << setw(100) << current->email.subject << endl;
             }
             else {
+                // Display detailed information for a specific row
                 cout << "No: " << rowNumber << endl;
-                cout << "From: " << current->email.sender << endl;
+                cout << "Sent To: " << current->email.receiver << endl;
                 cout << "Priority: " << current->email.priority << endl;
                 cout << "Subject: " << current->email.subject << endl;
-                cout << "Content: " << current->email.content << endl;
-                cout << "Date Received: " << current->email.dateSend << endl;
-                cout << "Time Received: " << current->email.timeSend << endl;
                 found = true;
                 break;
             }
@@ -149,6 +145,7 @@ void OutboxManagement::displayQueue(int rowNumber) {
         cout << "Row number " << rowNumber << " not found in the queue." << endl;
     }
 }
+
 
 
 void OutboxManagement::sentAllDraft() {
@@ -173,6 +170,14 @@ void OutboxManagement::sentAllDraft() {
 
 void OutboxManagement::displaySentEmails() {
      sentOutbox.displaySentEmails(); // Call the function from SentOutboxManagement
+}
+
+bool OutboxManagement::isSentOutboxEmpty() {
+    return sentOutbox.isEmpty(); // Call the function from SentOutboxManagement
+}
+
+void OutboxManagement::displayEmailDetails(int rowNumber) {
+    sentOutbox.displayDetailedSentEmail(rowNumber); // Call the function from SentOutboxManagement
 }
 
 void OutboxManagement::addToDraft(OutgoingEmail email) {
@@ -221,6 +226,12 @@ void OutboxManagement::addNewEmail(string receiver, string subject) {
     while (true) {
         cout << "Select the option: 1. Send Email Immediately 2. Save As Draft" << endl;
         cin >> action;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid choice. Please try again.\n";
+        }
 
         if (action == 1) {
             sentOutbox.pushToSent(draft);

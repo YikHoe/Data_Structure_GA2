@@ -257,11 +257,12 @@ void outboxManagement(InboxManagement& emailInbox, OutboxManagement& emailOutbox
 	while (true) {
 		cout << "\n=== Outbox Management ===\n";
 		cout << "1. Display Outbox\n";
-		cout << "2. Display Draft\n";
-		cout << "3. Reply an Email\n";
-		cout << "4. Create New Emails\n";
-		cout << "5. Sent All Draft Emails\n";
-		cout << "6. Return to Main Menu\n";
+		cout << "2. View Specify Outbox\n";
+		cout << "3. Display Draft\n";
+		cout << "4. Reply an Email\n";
+		cout << "5. Create New Emails\n";
+		cout << "6. Sent All Draft Emails\n";
+		cout << "7. Return to Main Menu\n";
 		cout << "Please select an option: ";
 		cin >> choice;
 
@@ -279,43 +280,64 @@ void outboxManagement(InboxManagement& emailInbox, OutboxManagement& emailOutbox
 			break;
 
 		case 2:
+			if (!emailOutbox.isSentOutboxEmpty()) {
+				while (true) {
+					int emailChoice;
+					emailOutbox.displaySentEmails();
+					cout << "\Select the row number to view outbox detail: ";
+					cin >> emailChoice;
+					if (cin.fail() || emailChoice <= 0 || emailChoice > emailInbox.getInboxSize()) {
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout << "Invalid choice. Please try again.\n";
+					}
+					else {
+						emailOutbox.displayEmailDetails(emailChoice);
+						break;
+					}
+				}
+			}
+			else {
+				cout << "The outbox is empty!" << endl;
+			}
+			break;
+
+		case 3:
 			//Display draft using LLQueue
 			emailOutbox.displayQueue();
 			break;
 
-		case 3: 
-			int emailChoice;
-			emailInbox.displayInbox();
-			cout << "\nEnter the row number to reply an email: ";
-			cin >> emailChoice;
-			replySpecifyEmail(emailInbox, emailChoice, emailOutbox);
-			//int emailChoice;
-			//emailQueue.displayQueue();
-			//cout << "\nEnter the row number to view an email: ";
-			//cin >> emailChoice;
+		case 4: 
+			while (true) {
+				int replyChoice;
+				emailInbox.displayInbox();
+				cout << "\nEnter the row number to reply an email: ";
+				cin >> replyChoice;
 
-			if (cin.fail() || emailChoice <= 0 || emailChoice > emailInbox.getInboxSize()) {
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
-				cout << "Invalid choice. Please try again.\n";
-			}
-			else {
-				emailOutbox.displayQueue(emailChoice);
+
+				if (cin.fail() || replyChoice <= 0 || replyChoice > emailInbox.getInboxSize()) {
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout << "Invalid choice. Please try again.\n";
+				}
+				else {
+					replySpecifyEmail(emailInbox, replyChoice, emailOutbox);
+					break;
+				}
 			}
 			break;
-		
 
-		case 4:
+		case 5:
 			cout << "\nCreating New Email... \n";
 			emailOutbox.addNewEmail();
 			break;
 
-		case 5:
+		case 6:
 			cout << "\Sending All Email... \n";
 			emailOutbox.sentAllDraft();
 			break;
 
-		case 6:
+		case 7:
 			//Check if got email to upload, if yes ask to upload
 			if (!emailOutbox.isEmpty()) {
 				while (true) {

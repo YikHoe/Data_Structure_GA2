@@ -1,4 +1,5 @@
 #include "SentOutboxManagement.hpp"
+#include <ctime>  // For time functions
 // Constructor
 SentOutboxManagement::SentOutboxManagement() : topNode(nullptr), stackSize(0) {}
 
@@ -16,12 +17,29 @@ OutgoingStackNode* SentOutboxManagement::createNewNode(const OutgoingEmail& emai
 }
 
 // Push an email to the sent stack
-void SentOutboxManagement::pushToSent(const OutgoingEmail& email) {
+void SentOutboxManagement::pushToSent(OutgoingEmail& email) {
+    // Get the current time
+    time_t now = time(0);
+    tm localTime;
+    
+    // Use localtime_s for thread safety
+    localtime_s(&localTime, &now);
+
+    // Format date as "YYYY-MM-DD"
+    char dateBuffer[11];  // Enough for "YYYY-MM-DD" + null terminator
+    strftime(dateBuffer, sizeof(dateBuffer), "%Y-%m-%d", &localTime);
+    email.dateSend = dateBuffer;
+
+    // Format time as "HH:MM"
+    char timeBuffer[6];  // Enough for "HH:MM" + null terminator
+    strftime(timeBuffer, sizeof(timeBuffer), "%H:%M", &localTime);
+    email.timeSend = timeBuffer;
+
+    // Create a new node with the updated email
     OutgoingStackNode* newNode = createNewNode(email);
     if (stackSize == 0) {
         topNode = newNode;
-    }
-    else {
+    } else {
         newNode->nextAdd = topNode;
         topNode = newNode;
     }
@@ -79,13 +97,24 @@ void SentOutboxManagement::displayDetailedSentEmail(int emailNo) {
         const OutgoingEmail& email = currentNode->email;
 
         if (currentRow == emailNo) {
-            cout << "No: " << currentRow << endl;
-            cout << "From: " << email.sender << endl;
-            cout << "Priority: " << email.priority << endl;
+            cout << endl;
+            cout << string(50, '=') << "Outbox Details" << string(50, '=') << endl;
+            if (email.isReply) {
+                cout << "Reply To: " << email.receiver << endl;
+                cout << "Reply Subject: " << email.replySubject << endl;
+            }
+            else {
+                cout << "Sent To: " << email.receiver << endl;
+            }
+            cout << endl;
+            cout << string(114, '-') << endl;
+            cout << endl;
+            cout << "=== Outbox No: " << currentRow << " ===" << endl;
             cout << "Subject: " << email.subject << endl;
             cout << "Content: " << email.content << endl;
             cout << "Date Sent: " << email.dateSend << endl;
             cout << "Time Sent: " << email.timeSend << endl;
+            cout << string(114, '=') << endl;
             return;
         }
 

@@ -23,7 +23,7 @@ public:
     ~SentOutboxManagement();
 
     OutgoingStackNode* createNewNode(const OutgoingEmail& email);
-    void pushToSent(const OutgoingEmail& email);
+    void pushToSent(OutgoingEmail& email);
     bool isEmpty() const;
     void displaySentEmails();
     void displayDetailedSentEmail(int emailNo);
