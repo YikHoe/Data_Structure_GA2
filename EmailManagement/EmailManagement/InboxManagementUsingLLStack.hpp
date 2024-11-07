@@ -125,6 +125,7 @@ public:
 
     // Display the details of an email
     void displayEmail(const Email& email) {
+        cout << endl;
         cout << "From: " << email.sender << endl;
         cout << "Priority: " << email.priority << endl;
         cout << "Subject: " << email.subject << endl;
@@ -208,7 +209,7 @@ public:
             return;
         }
 
-        cout << left << setw(5) << "No"
+        cout << left << setw(5) << "ID"
             << setw(40) << "Sender"
             << setw(10) << "Priority"
             << setw(100) << "Subject"

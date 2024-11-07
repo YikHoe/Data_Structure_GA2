@@ -178,8 +178,30 @@ void displayMainMenu() {
 	cout << "Please select an option: ";
 }
 
-void unmarkSpam() {
+void unmarkSpam(InboxManagement& emailInbox, int emailNum) {
+	LinkedListStack<Email> tempStack;
+	int rowNumber = 1;
 
+	// Loop through the inbox until the desired email is reached
+	while (!emailInbox.isInboxEmpty() && rowNumber <= emailNum) {
+		Email selectedEmail = emailInbox.viewRecentEmail();
+		emailInbox.popRecentEmail();
+
+		// If the current row matches the user's choice, display the email
+		if (rowNumber == emailNum) {
+			selectedEmail.isSpam = false;
+			break;
+		}
+
+		tempStack.push(selectedEmail); // Push email onto temporary stack
+		rowNumber++;
+	}
+
+	// Restore the emails back to the inbox stack
+	while (!tempStack.isEmpty()) {
+		emailInbox.pushEmail(tempStack.getTop());
+		tempStack.pop();
+	}
 }
 
 void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
@@ -205,13 +227,13 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 
 		switch (choice) {
 		case 1:
-			emailInbox.displayInbox();
+			emailInbox.displayInbox(true);
 			break;
 
 		case 2: {
 			int emailChoice;
-			emailInbox.displayInbox();
-			cout << "\nEnter the row number to view an email: ";
+			emailInbox.displayInbox(true);
+			cout << "\nEnter the email ID to view: ";
 			cin >> emailChoice;
 
 			selectAndDisplayEmail(emailInbox, emailChoice);
@@ -244,9 +266,9 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 		case 5: {
 			emailInbox.displayInbox(true);
 			int row;
-			cout << "Enter the row number to view the email: ";
+			cout << "Enter the row number to view the email [0 to exit]: ";
 			cin >> row;
-			if (cin.fail() || row <= 0 || row > emailInbox.getInboxSize()) {
+			if (cin.fail() || row < 0 || row > emailInbox.getInboxSize()) {
 				cin.clear();
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				cout << "Invalid row number. Please try again.\n";
@@ -263,8 +285,9 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 					cout << "Invalid input.\n";
 				}
-				else {
-
+				else if (choice == 1) {
+					unmarkSpam(emailInbox, row);
+					cout << "Email " << row << " is removed from spam." << endl;
 				}
 
 			}
@@ -275,7 +298,7 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 			return;
 
 		default:
-			cout << "Invalid option. Please select a number between 1 and6.\n";
+			cout << "Invalid option.\n";
 		}
 	}
 }
