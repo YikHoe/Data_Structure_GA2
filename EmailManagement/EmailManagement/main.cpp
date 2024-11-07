@@ -169,13 +169,18 @@ void replySpecifyEmail(InboxManagement& emailInbox, int choice, OutboxManagement
 		tempStack.pop();
 	}
 
-void preprocessEmail(InboxManagement& emailInbox, LinkedListQueue& emailQueue, spamDetector& detector) {
+}
+
+void preprocessEmail(InboxManagement& emailInbox, LinkedListQueue& emailQueue, InboxManagement& spamEmailInbox, spamDetector& detector) {
 	while (!emailQueue.isEmpty()) {
 		Email email = emailQueue.dequeue();
 		if (detectSpam(email.content, detector)) {
 			email.isSpam = true;
+			spamEmailInbox.pushEmail(email);
 		}
-		emailInbox.pushEmail(email);
+		else {
+			emailInbox.pushEmail(email);
+		}
 	}
 }
 
@@ -207,18 +212,19 @@ void displayMainMenu() {
 	cout << "Please select an option: ";
 }
 
-void unmarkSpam(InboxManagement& emailInbox, int emailNum) {
+void unmarkSpam(InboxManagement& emailInbox, InboxManagement& spamEmailInbox, int emailNum) {
 	LinkedListStack<Email> tempStack;
 	int rowNumber = 1;
 
 	// Loop through the inbox until the desired email is reached
-	while (!emailInbox.isInboxEmpty() && rowNumber <= emailNum) {
-		Email selectedEmail = emailInbox.viewRecentEmail();
-		emailInbox.popRecentEmail();
+	while (!spamEmailInbox.isInboxEmpty() && rowNumber <= emailNum) {
+		Email selectedEmail = spamEmailInbox.viewRecentEmail();
+		spamEmailInbox.popRecentEmail();
 
 		// If the current row matches the user's choice, display the email
 		if (rowNumber == emailNum) {
 			selectedEmail.isSpam = false;
+			emailInbox.pushEmail(selectedEmail);
 			break;
 		}
 
@@ -228,12 +234,12 @@ void unmarkSpam(InboxManagement& emailInbox, int emailNum) {
 
 	// Restore the emails back to the inbox stack
 	while (!tempStack.isEmpty()) {
-		emailInbox.pushEmail(tempStack.getTop());
+		spamEmailInbox.pushEmail(tempStack.getTop());
 		tempStack.pop();
 	}
 }
 
-void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
+void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue, InboxManagement& spamEmailInbox) {
 	int choice;
 
 	while (true) {
@@ -256,12 +262,12 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 
 		switch (choice) {
 		case 1:
-			emailInbox.displayInbox(true);
+			emailInbox.displayInbox();
 			break;
 
 		case 2: {
 			int emailChoice;
-			emailInbox.displayInbox(true);
+			emailInbox.displayInbox();
 			cout << "\nEnter the email ID to view: ";
 			cin >> emailChoice;
 
@@ -293,17 +299,17 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 		}
 
 		case 5: {
-			emailInbox.displayInbox(true);
+			spamEmailInbox.displayInbox();
 			int row;
 			cout << "Enter the row number to view the email [0 to exit]: ";
 			cin >> row;
-			if (cin.fail() || row < 0 || row > emailInbox.getInboxSize()) {
+			if (cin.fail() || row < 0 || row > spamEmailInbox.getInboxSize()) {
 				cin.clear();
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				cout << "Invalid row number. Please try again.\n";
 			}
 			else {
-				selectAndDisplayEmail(emailInbox, row);
+				selectAndDisplayEmail(spamEmailInbox, row);
 				int choice;
 				cout << "\n=== Spam Management ===\n";
 				cout << "1. Mark as Not Spam\n";
@@ -315,7 +321,7 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 					cout << "Invalid input.\n";
 				}
 				else if (choice == 1) {
-					unmarkSpam(emailInbox, row);
+					unmarkSpam(emailInbox, spamEmailInbox, row);
 					cout << "Email " << row << " is removed from spam." << endl;
 				}
 
@@ -451,6 +457,7 @@ void outboxManagement(InboxManagement& emailInbox, OutboxManagement& emailOutbox
 int main() {
 	// Inbox management init
     InboxManagement emailInbox("Email Stack");
+	InboxManagement spamEmails("Spam Stack");
 	LinkedListQueue emailQueue("Email Queue");
 	OutboxManagement emailOutbox("Email Outbox");
 	SentOutboxManagement emailSent;
@@ -458,7 +465,7 @@ int main() {
 
     loadEmailsFromFile(emailQueue, "DummyEmails.csv"); // load all emails into queue for preprosessing
     loadSpamWords(sDec, "spamWords.txt"); // init spam detector
-	preprocessEmail(emailInbox, emailQueue, sDec); // process emails
+	preprocessEmail(emailInbox, emailQueue, spamEmails, sDec); // process emails
 
 	int choice;
 
@@ -475,7 +482,7 @@ int main() {
 
 		switch (choice) {
 		case 1:
-			inboxManagement(emailInbox, emailQueue);
+			inboxManagement(emailInbox, emailQueue, spamEmails);
 			break;
 
 		case 2:

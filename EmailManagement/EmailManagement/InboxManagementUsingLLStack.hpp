@@ -204,7 +204,7 @@ public:
         return inboxStack.getSize();
     }
 
-    void displayInbox(bool forSpam = false) {
+    void displayInbox() {
         if (inboxStack.isEmpty()) {
             cout << "End of stack" << endl;
             return;
@@ -223,24 +223,12 @@ public:
 
         while (!inboxStack.isEmpty()) {
             Email currentEmail = inboxStack.getTop();
-            if (forSpam) {
-                if (currentEmail.isSpam) {
-                    cout << left << setw(5) << currentRow
-                        << setw(40) << currentEmail.sender
-                        << setw(10) << currentEmail.priority
-                        << setw(100) << currentEmail.subject
-                        << setw(20) << currentEmail.dateReceived
-                        << setw(10) << currentEmail.timeReceived << endl;
-                }
-            }
-            else {
-                cout << left << setw(5) << currentRow
-                    << setw(40) << currentEmail.sender
-                    << setw(10) << currentEmail.priority
-                    << setw(100) << currentEmail.subject
-                    << setw(20) << currentEmail.dateReceived
-                    << setw(10) << currentEmail.timeReceived << endl;
-            }
+            cout << left << setw(5) << currentRow
+                << setw(40) << currentEmail.sender
+                << setw(10) << currentEmail.priority
+                << setw(100) << currentEmail.subject
+                << setw(20) << currentEmail.dateReceived
+                << setw(10) << currentEmail.timeReceived << endl;
             currentRow++;
             temp.push(currentEmail);
             inboxStack.pop();
