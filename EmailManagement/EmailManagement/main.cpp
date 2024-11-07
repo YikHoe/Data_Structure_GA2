@@ -4,7 +4,10 @@
 #include <string>
 #include "InboxManagementUsingLLStack.hpp"
 #include "OutboxManagement.hpp"
+#include "SentOutboxManagement.hpp"
 #include "spamDetector.hpp"
+
+
 #include "LinkedListQueue.hpp"
 
 using namespace std;
@@ -96,6 +99,33 @@ void selectAndDisplayEmail(InboxManagement& emailInbox, int choice) {
 		if (rowNumber == choice) {
 			cout << "\nDisplaying email #" << choice << ":\n";
 			emailInbox.displayEmail(selectedEmail);
+		}
+
+		tempStack.push(selectedEmail); // Push email onto temporary stack
+		rowNumber++;
+	}
+
+	// Restore the emails back to the inbox stack
+	while (!tempStack.isEmpty()) {
+		emailInbox.pushEmail(tempStack.getTop());
+		tempStack.pop();
+	}
+}
+
+// Function to select and display a specific email based on user choice
+void replySpecifyEmail(InboxManagement& emailInbox, int choice, OutboxManagement& emailOutbox) {
+	LinkedListStack<Email> tempStack; // Temporary stack to hold emails
+	int rowNumber = 1; // Row number for selection
+
+	// Loop through the inbox until the desired email is reached
+	while (!emailInbox.isInboxEmpty() && rowNumber <= choice) {
+		Email selectedEmail = emailInbox.viewRecentEmail(); // Get the most recent email
+		emailInbox.popRecentEmail(); // Remove it from the inbox
+
+		// If the current row matches the user's choice, display the email
+		if (rowNumber == choice) {
+			//Pass the email sender, and subject into create new email function
+			emailOutbox.addNewEmail(selectedEmail.sender, selectedEmail.subject);
 		}
 
 		tempStack.push(selectedEmail); // Push email onto temporary stack
@@ -221,11 +251,11 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 }
 
 
-void outboxManagement(InboxManagement& emailInbox, OutboxManagement& emailOutbox) {
+void outboxManagement(InboxManagement& emailInbox, OutboxManagement& emailOutbox, SentOutboxManagement& emailSent) {
 	int choice;
 
 	while (true) {
-		cout << "\n=== Inbox Management ===\n";
+		cout << "\n=== Outbox Management ===\n";
 		cout << "1. Display Outbox\n";
 		cout << "2. Display Draft\n";
 		cout << "3. Reply an Email\n";
@@ -235,12 +265,12 @@ void outboxManagement(InboxManagement& emailInbox, OutboxManagement& emailOutbox
 		cout << "Please select an option: ";
 		cin >> choice;
 
-		//if (cin.fail()) {
-		//	cin.clear();
-		//	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		//	cout << "Invalid input. Please enter a valid number.\n";
-		//	continue;
-		//}
+		if (cin.fail()) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "Invalid input. Please enter a valid number.\n";
+			continue;
+		}
 
 		switch (choice) {
 		case 1:
@@ -258,7 +288,7 @@ void outboxManagement(InboxManagement& emailInbox, OutboxManagement& emailOutbox
 			emailInbox.displayInbox();
 			cout << "\nEnter the row number to reply an email: ";
 			cin >> emailChoice;
-
+			replySpecifyEmail(emailInbox, emailChoice, emailOutbox);
 			//int emailChoice;
 			//emailQueue.displayQueue();
 			//cout << "\nEnter the row number to view an email: ";
@@ -283,23 +313,33 @@ void outboxManagement(InboxManagement& emailInbox, OutboxManagement& emailOutbox
 		case 5:
 			cout << "\Sending All Email... \n";
 			emailOutbox.sentAllDraft();
-
+			break;
 
 		case 6:
 			//Check if got email to upload, if yes ask to upload
-			if (true) {
-				bool sentEmail;
-				cout << "There are email draft, do you want to send it?" << endl;
-				cin >> sentEmail;
-				if (sentEmail) {
-					//emailQueue.sendNewEmail();
+			if (!emailOutbox.isEmpty()) {
+				while (true) {
+					string sentEmail;
+					cout << "There are email draft, do you want to send it? (y/n)" << endl;
+					cin >> sentEmail;
+					if (sentEmail == "y") {
+						emailOutbox.sentAllDraft();
+						break;
+					}
+					else if (sentEmail == "n") {
+						break;
+					}
+					else {
+						cout << "Please select 'y' for yes or 'n' for no." << endl;
+					}
 				}
 			}
 			return;
 			
 
 		default:
-			cout << "Invalid option. Please select a number between 1 and4.\n";
+			cout << "Invalid option. Please select a number between 1 and6.\n";
+			break;
 		}
 	}
 }
@@ -309,6 +349,7 @@ int main() {
     InboxManagement emailInbox("Email Stack");
 	LinkedListQueue emailQueue("Email Queue");
 	OutboxManagement emailOutbox("Email Outbox");
+	SentOutboxManagement emailSent;
     spamDetector sDec;
 
     loadEmailsFromFile(emailQueue, "DummyEmails.csv"); // load all emails into queue for preprosessing
@@ -334,7 +375,7 @@ int main() {
 			break;
 
 		case 2:
-			outboxManagement(emailInbox, emailOutbox);
+			outboxManagement(emailInbox, emailOutbox, emailSent);
 			break;
 
 		case 3:
