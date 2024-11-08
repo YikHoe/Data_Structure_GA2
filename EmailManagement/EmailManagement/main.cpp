@@ -254,11 +254,12 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue, I
 	while (true) {
 		cout << "\n=== Inbox Management ===\n";
 		cout << "1. Display Inbox\n";
-		cout << "2. Select and Review an Email\n";
+		cout << "2. Select and View an Email\n";
 		cout << "3. Filter and Sort Emails by Priority (High to Low)\n";
 		cout << "4. Mark an Email as Important\n";
 		cout << "5. Display Spam Emails\n";
-		cout << "6. Return to Main Menu\n";
+		cout << "6. Search Email by Email Title\n";
+		cout << "7. Return to Main Menu\n";
 		cout << "Please select an option: ";
 		cin >> choice;
 
@@ -339,7 +340,18 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue, I
 			break;
 		}
 
-		case 6:
+		case 6: {
+			string searchString;
+			cout << "Enter the email title to search for: ";
+			cin.ignore();  // Clear the newline character in the buffer
+			getline(cin, searchString);
+
+			// Perform the search
+			emailInbox.searchEmailByTitle(searchString);
+			break;
+		}
+
+		case 7:
 			return;
 
 		default:
@@ -382,7 +394,7 @@ void outboxManagement(InboxManagement& emailInbox, OutboxManagement& emailOutbox
 				while (true) {
 					int emailChoice;
 					emailOutbox.displaySentEmails();
-					cout << "\Select the row number to view outbox detail: ";
+					cout << "\nSelect the row number to view outbox detail: ";
 					cin >> emailChoice;
 					if (cin.fail() || emailChoice <= 0 || emailChoice > emailInbox.getInboxSize()) {
 						cin.clear();
@@ -431,7 +443,7 @@ void outboxManagement(InboxManagement& emailInbox, OutboxManagement& emailOutbox
 			break;
 
 		case 6:
-			cout << "\Sending All Email... \n";
+			cout << "\nSending All Email... \n";
 			emailOutbox.sentAllDraft();
 			break;
 
@@ -458,7 +470,7 @@ void outboxManagement(InboxManagement& emailInbox, OutboxManagement& emailOutbox
 			
 
 		default:
-			cout << "Invalid option. Please select a number between 1 and6.\n";
+			cout << "Invalid option. Please select a number between 1 and 6.\n";
 			break;
 		}
 	}
