@@ -88,7 +88,16 @@ void loadSpamWords(spamDetector& detector, const string& filename) {
 // Function to select and display a specific email based on user choice
 void selectAndDisplayEmail(InboxManagement& emailInbox, int choice) {
 	LinkedListStack<Email> tempStack; // Temporary stack to hold emails
+	int inboxSize = emailInbox.getInboxSize(); // Get the total number of emails
 	int rowNumber = 1; // Row number for selection
+
+	// Clear the input buffer and exit if input is invalid
+	if (cin.fail() || choice < 1 || choice > inboxSize) {
+		cin.clear(); // Clear the error flag
+		cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+		cout << "Invalid input.\n";
+		return;
+	}
 
 	// Loop through the inbox until the desired email is reached
 	while (!emailInbox.isInboxEmpty() && rowNumber <= choice) {
@@ -277,6 +286,7 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue, I
 
 		case 3:
 			cout << "\nFiltering and sorting emails by priority (High to Low)...\n";
+			moveStackToQueue(emailInbox, emailQueue);
 			emailQueue.moveBasedOnPriority();
 			emailQueue.displayQueue();
 			break;

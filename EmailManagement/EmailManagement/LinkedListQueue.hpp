@@ -128,12 +128,12 @@ public:
 		if (rowNumber == -1) {
 			// Display table header for all rows
 			cout << left << setw(5) << "No"
-				<< setw(40) << "Sender"
+				<< setw(35) << "Sender"
 				<< setw(10) << "Priority"
-				<< setw(100) << "Subject"
+				<< setw(70) << "Subject"
 				<< setw(20) << "Date Received"
 				<< setw(10) << "Time Received" << endl;
-			cout << string(200, '-') << endl;
+			cout << string(155, '-') << endl;
 		}
 
 		int currentRow = 1;
@@ -145,9 +145,9 @@ public:
 				if (rowNumber == -1) {
 					// Tabular format for all rows
 					cout << left << setw(5) << currentRow
-						<< setw(40) << current->email.sender
+						<< setw(35) << current->email.sender
 						<< setw(10) << current->email.priority
-						<< setw(100) << current->email.subject
+						<< setw(70) << current->email.subject
 						<< setw(20) << current->email.dateReceived
 						<< setw(10) << current->email.timeReceived << endl;
 				}

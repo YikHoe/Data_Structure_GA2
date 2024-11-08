@@ -211,12 +211,12 @@ public:
         }
 
         cout << left << setw(5) << "ID"
-            << setw(40) << "Sender"
+            << setw(35) << "Sender"
             << setw(10) << "Priority"
-            << setw(100) << "Subject"
+            << setw(70) << "Subject"
             << setw(20) << "Date Received"
             << setw(10) << "Time Received" << endl;
-        cout << string(200, '-') << endl;
+        cout << string(155, '-') << endl;
 
         int currentRow = 1;
         LinkedListStack<Email> temp;
@@ -224,9 +224,9 @@ public:
         while (!inboxStack.isEmpty()) {
             Email currentEmail = inboxStack.getTop();
             cout << left << setw(5) << currentRow
-                << setw(40) << currentEmail.sender
+                << setw(35) << currentEmail.sender
                 << setw(10) << currentEmail.priority
-                << setw(100) << currentEmail.subject
+                << setw(70) << currentEmail.subject
                 << setw(20) << currentEmail.dateReceived
                 << setw(10) << currentEmail.timeReceived << endl;
             currentRow++;
