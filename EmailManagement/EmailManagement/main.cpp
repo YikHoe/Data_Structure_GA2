@@ -319,12 +319,16 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue, I
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				cout << "Invalid row number. Please try again.\n";
 			}
+			else if (row == 0) {
+				break;
+			}
 			else {
 				selectAndDisplayEmail(spamEmailInbox, row);
 				int choice;
 				cout << "\n=== Spam Management ===\n";
 				cout << "1. Mark as Not Spam\n";
 				cout << "2. Exit\n";
+				cout << "Enter option: ";
 				cin >> choice;
 				if (cin.fail() || choice <= 0 || choice > 2) {
 					cin.clear();
