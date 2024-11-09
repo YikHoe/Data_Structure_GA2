@@ -218,13 +218,24 @@ void OutboxManagement::addNewEmail(string receiver, string subject) {
 
     cout << "Enter content: ";
     getline(cin, draft.content);
-
-    cout << "Enter priority: ";
-    cin >> draft.priority;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    while (true) {
+        cout << "Email priority:" << endl;
+        cout << "1. High priority (email would queue on top)" << endl;
+        cout << "2. Low priority" << endl;
+        cout << "Select the email priority (1 or 2): ";
+        cin >> draft.priority;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        if (draft.priority == "1" || draft.priority == "2")
+            break;
+        else
+            cout << "Please select the option either 1 or 2!" << endl;
+    }
 
     while (true) {
-        cout << "Select the option: 1. Send Email Immediately 2. Save As Draft" << endl;
+        cout << "Email priority:" << endl;
+        cout << "1. Send Email Immediately" << endl;
+        cout << "2. Save Email As Draft" << endl;
+        cout << "Select the option (1 or 2): " ;
         cin >> action;
 
         if (cin.fail()) {

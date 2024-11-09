@@ -211,7 +211,7 @@ public:
 		}
 
 		cout << left << setw(5) << "ID"
-			<< setw(35) << "Sender"
+			<< setw(35) << "Sent To"
 			<< setw(10) << "Priority"
 			<< setw(70) << "Subject"
 			<< setw(20) << "Date Received"
@@ -224,7 +224,7 @@ public:
 		while (!inboxStack.isEmpty()) {
 			Email currentEmail = inboxStack.getTop();
 			cout << left << setw(5) << currentRow
-				<< setw(35) << currentEmail.sender
+				<< setw(35) << currentEmail.receiver
 				<< setw(10) << currentEmail.priority
 				<< setw(70) << currentEmail.subject
 				<< setw(20) << currentEmail.dateReceived
