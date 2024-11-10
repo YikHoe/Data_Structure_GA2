@@ -194,6 +194,7 @@ void OutboxManagement::addToDraft(OutgoingEmail email) {
 void OutboxManagement::addNewEmail(string receiver, string subject) {
     OutgoingEmail draft;
     int action;
+    int priorityChoice;
     if (receiver == "") {
         // If the user create new email
         cout << "Enter receiver's email: ";
@@ -221,12 +222,19 @@ void OutboxManagement::addNewEmail(string receiver, string subject) {
     while (true) {
         cout << "Email priority:" << endl;
         cout << "1. High priority (email would queue on top)" << endl;
-        cout << "2. Low priority" << endl;
+        cout << "2. Normal priority" << endl;
         cout << "Select the email priority (1 or 2): ";
-        cin >> draft.priority;
+        cin >> priorityChoice;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        if (draft.priority == "1" || draft.priority == "2")
+        if (priorityChoice == 1) {
+            draft.priority = "high";
             break;
+        }
+        else if (priorityChoice == 2) {
+            draft.priority = "normal";
+            break;
+        }
+           
         else
             cout << "Please select the option either 1 or 2!" << endl;
     }
