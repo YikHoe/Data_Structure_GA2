@@ -56,33 +56,33 @@ void loadEmailsFromFile(LinkedListQueue& emailQueue, const string& filename) {
 		if (sender.find("sender") != string::npos) continue;
 		if (sender.empty()) break;
 
-        // Create a new Email object and push it onto the inbox
-        Email newEmail = { sender, priority, subject, content, dateReceived, timeReceived, "", false};
-        emailQueue.enQueue(newEmail);
-    }
+		// Create a new Email object and push it onto the inbox
+		Email newEmail = { sender, priority, subject, content, dateReceived, timeReceived, "", false };
+		emailQueue.enQueue(newEmail);
+	}
 }
 
 // load spam words and pharases
 void loadSpamWords(spamDetector& detector, const string& filename) {
-    ifstream file(filename);
+	ifstream file(filename);
 
-    if (!file.is_open()) {
-        cout << "Error opening spam words file." << endl;
-        return;
-    }
+	if (!file.is_open()) {
+		cout << "Error opening spam words file." << endl;
+		return;
+	}
 
-    string line;
-    while (getline(file, line)) {
-        size_t delimPos = line.find(':');
-        if (delimPos != string::npos) {
-            string word = line.substr(0, delimPos);
-            int susWeight = stoi(line.substr(delimPos + 1));
+	string line;
+	while (getline(file, line)) {
+		size_t delimPos = line.find(':');
+		if (delimPos != string::npos) {
+			string word = line.substr(0, delimPos);
+			int susWeight = stoi(line.substr(delimPos + 1));
 
-            detector.push(word, susWeight);
-        }
-    }
+			detector.push(word, susWeight);
+		}
+	}
 
-    file.close();
+	file.close();
 }
 
 // Function to select and display a specific email based on user choice
@@ -255,29 +255,31 @@ void unmarkSpam(InboxManagement& emailInbox, InboxManagement& spamEmailInbox, in
 }
 
 void updatePriorityInStack(InboxManagement& emailInbox, Email& targetEmail) {
-	LinkedListStack<Email> tempStack;  // Temporary stack to hold emails while updating
+	LinkedListStack<Email> tempStack;
 	bool updated = false;
 
+	// Step 1: Traverse the original stack to find and update the target email
 	while (!emailInbox.isInboxEmpty()) {
 		Email email = emailInbox.viewRecentEmail();
 		emailInbox.popRecentEmail();
 
-		// Check if the email matches the target email
-		if (email.sender == targetEmail.sender) {  // Adjust comparison as needed
-			email.priority = "High";               // Update priority in stack
+		// Check if this is the target email to update
+		if (email.sender == targetEmail.sender) {  // Adjust comparison if a unique identifier is used
+			email.priority = targetEmail.priority;  // Update the priority
 			updated = true;
 		}
 
-		// Push to temporary stack
+		// Push the email to the temporary stack (preserves order for restoration)
 		tempStack.push(email);
 	}
 
-	// Restore the original stack order
+	// Step 2: Restore the original stack order by moving elements back from the temporary stack
 	while (!tempStack.isEmpty()) {
 		emailInbox.pushEmail(tempStack.getTop());
 		tempStack.pop();
 	}
 
+	// Step 3: Confirm whether the update was successful
 	if (updated) {
 		cout << "Priority updated in the stack for the email with sender: " << targetEmail.sender << endl;
 	}
@@ -285,6 +287,7 @@ void updatePriorityInStack(InboxManagement& emailInbox, Email& targetEmail) {
 		cout << "Email with sender " << targetEmail.sender << " not found in the stack." << endl;
 	}
 }
+
 
 void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue, InboxManagement& spamEmailInbox) {
 	int choice;
@@ -294,7 +297,7 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue, I
 		cout << "1. Display Inbox\n";
 		cout << "2. Select and View an Email\n";
 		cout << "3. Filter and Sort Emails by Priority (High to Low)\n";
-		cout << "4. Mark an Email as Important\n";
+		cout << "4. Mark/Unmark an Email as Important\n";
 		cout << "5. Display Spam Emails\n";
 		cout << "6. Search Email by Email Title\n";
 		cout << "7. Return to Main Menu\n";
@@ -332,17 +335,34 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue, I
 
 		case 4: {
 			emailQueue.displayQueue();
-			int row;
-			cout << "Enter the row number to change the priority: ";
-			cin >> row;
-			if (cin.fail() || row <= 0) {
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
-				cout << "Invalid row number. Please try again.\n";
-			}
-			else {
-				emailQueue.changePriorityAndMoveToFrontByRow(row, emailInbox);
-				emailQueue.displayQueue();
+			if (!emailQueue.isEmpty()) {
+				int row;
+				cout << "Enter the row number to change the priority: ";
+				cin >> row;
+				if (cin.fail() || row <= 0) {
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout << "Invalid row number. Please try again.\n";
+				}
+				else {
+					int choice;
+					cout << "Enter your priority [0 - Low, 1 - High]: ";
+					cin >> choice;
+					if (choice == 0) {
+
+						emailQueue.changePriorityAndMoveToBackByRow(row, emailInbox);
+					}
+					else if (choice == 1) {
+						emailQueue.changePriorityAndMoveToFrontByRow(row, emailInbox);
+					}
+					else {
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout << "Invalid choice. Please try again.\n";
+					}
+					emailQueue.displayQueue();
+				}
+				break;
 			}
 			break;
 		}
@@ -459,7 +479,7 @@ void outboxManagement(InboxManagement& emailInbox, OutboxManagement& emailOutbox
 			emailOutbox.displayQueue();
 			break;
 
-		case 4: 
+		case 4:
 			while (true) {
 				int replyChoice;
 				emailInbox.displayInbox();
@@ -509,7 +529,7 @@ void outboxManagement(InboxManagement& emailInbox, OutboxManagement& emailOutbox
 				}
 			}
 			return;
-			
+
 
 		default:
 			cout << "Invalid option. Please select a number between 1 and 6.\n";
@@ -520,15 +540,15 @@ void outboxManagement(InboxManagement& emailInbox, OutboxManagement& emailOutbox
 
 int main() {
 	// Inbox management init
-    InboxManagement emailInbox("Email Stack");
+	InboxManagement emailInbox("Email Stack");
 	InboxManagement spamEmails("Spam Stack");
 	LinkedListQueue emailQueue("Email Queue");
 	OutboxManagement emailOutbox("Email Outbox");
 	SentOutboxManagement emailSent;
-    spamDetector sDec;
+	spamDetector sDec;
 
-    loadEmailsFromFile(emailQueue, "DummyEmails.csv"); // load all emails into queue for preprosessing
-    loadSpamWords(sDec, "spamWords.txt"); // init spam detector
+	loadEmailsFromFile(emailQueue, "DummyEmails.csv"); // load all emails into queue for preprosessing
+	loadSpamWords(sDec, "spamWords.txt"); // init spam detector
 	preprocessEmail(emailInbox, emailQueue, spamEmails, sDec); // process emails
 
 	int choice;

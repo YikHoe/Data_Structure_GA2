@@ -280,4 +280,67 @@ public:
 	}
 
 
+	void changePriorityAndMoveToBackByRow(int rowNumber, InboxManagement& emailInbox) {
+		if (isEmpty()) {
+			cout << "Queue is empty." << endl;
+			return;
+		}
+
+		// Start from the front of the queue
+		queueNode* current = front;
+		int currentRow = 1; // Keep track of the row number
+
+		// Traverse to the specified row
+		while (current != nullptr && currentRow < rowNumber) {
+			current = current->next;
+			currentRow++;
+		}
+
+		// Check if the row exists in the queue
+		if (current == nullptr) {
+			cout << endl << "Row " << rowNumber << " not found in the queue." << endl;
+			return;
+		}
+
+		// Check if the priority is already "Low"
+		if (current->email.priority == "Low") {
+			cout << endl << "Email at row " << rowNumber << " already has 'Low' priority. Only Moving to the back." << endl;
+		}
+		else {
+			// Change the priority to "Low" in the queue
+			current->email.priority = "Low";
+			cout << endl << "Priority of email at row " << rowNumber << " changed to 'Low' and moved to the back." << endl;
+
+			// Call the stack update function to update priority in the stack
+			updatePriorityInStack(emailInbox, current->email);
+		}
+
+		// If the node is already at the back, no need to move
+		if (current == rear) {
+			cout << endl << "Email at row " << rowNumber << " is already at the back." << endl;
+			return;
+		}
+
+		// Detach the node from its current position
+		if (current == front) {
+			// If it's the front node, update the front pointer
+			front = front->next;
+			if (front) front->prev = nullptr;
+		}
+		else {
+			// If it's a middle node, adjust its neighbors
+			if (current->prev) current->prev->next = current->next;
+			if (current->next) current->next->prev = current->prev;
+		}
+
+		// Move the node to the back of the queue
+		current->prev = rear;
+		current->next = nullptr;
+
+		if (rear) rear->next = current;
+		rear = current;  // Update the rear pointer
+	}
+
+
+
 };
