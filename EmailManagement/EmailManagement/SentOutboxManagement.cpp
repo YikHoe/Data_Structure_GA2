@@ -60,7 +60,7 @@ void SentOutboxManagement::displaySentEmails() {
     }
 
     cout << left << setw(5) << "No"
-        << setw(40) << "Sender"
+        << setw(40) << "Sent To"
         << setw(10) << "Priority"
         << setw(100) << "Subject"
         << setw(20) << "Date Sent"
@@ -73,7 +73,7 @@ void SentOutboxManagement::displaySentEmails() {
     while (currentNode != nullptr) {
         const OutgoingEmail& email = currentNode->email;
         cout << left << setw(5) << currentRow
-            << setw(40) << email.sender
+            << setw(40) << email.receiver
             << setw(10) << email.priority
             << setw(100) << email.subject
             << setw(20) << email.dateSend
