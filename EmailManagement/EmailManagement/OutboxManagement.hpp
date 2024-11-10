@@ -9,18 +9,6 @@
 
 using namespace std;
 
-//struct OutgoingEmail {
-//    string receiver;
-//    string sender;
-//    string priority;
-//    string subject;
-//    string content;
-//    string dateSend;
-//    string timeSend;
-//    bool replyTo;
-//    string replySubject;
-//};
-
 struct outgoingQueueNode {
     OutgoingEmail email;
     outgoingQueueNode* next;

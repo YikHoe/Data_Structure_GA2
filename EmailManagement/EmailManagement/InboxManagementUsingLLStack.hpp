@@ -306,4 +306,37 @@ public:
 
 };
 
+void updatePriorityInStack(InboxManagement& emailInbox, Email& targetEmail) {
+	LinkedListStack<Email> tempStack;  // Temporary stack to hold emails while updating
+
+	bool updated = false;
+	while (!emailInbox.isInboxEmpty()) {
+		Email email = emailInbox.viewRecentEmail();
+		emailInbox.popRecentEmail();
+
+		// Check if the email matches the target email
+		if (email.sender == targetEmail.sender) {  // Assume 'id' uniquely identifies an email
+			email.priority = "High";       // Update priority in stack
+			updated = true;
+		}
+
+		// Push to temporary stack
+		tempStack.push(email);
+	}
+
+	// Restore the original stack order
+	while (!tempStack.isEmpty()) {
+		emailInbox.pushEmail(tempStack.getTop());
+		tempStack.pop();
+	}
+
+	if (updated) {
+		cout << "Priority updated in the stack for the email with sender: " << targetEmail.sender << endl;
+	}
+	else {
+		cout << "Email with sender " << targetEmail.sender << " not found in the stack." << endl;
+	}
+}
+
+
 #endif // INBOXMANAGEMENTUSINGLLSTACK_HPP

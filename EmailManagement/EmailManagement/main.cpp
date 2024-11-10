@@ -195,22 +195,28 @@ void preprocessEmail(InboxManagement& emailInbox, LinkedListQueue& emailQueue, I
 
 void moveStackToQueue(InboxManagement& emailInbox, LinkedListQueue& emailQueue) {
 	LinkedListStack<Email> tempStack; // Temporary stack to hold emails
+	if (emailQueue.isEmpty()) {
+		// While the inbox isn't empty, pop recent emails and enqueue them to the queue
+		while (!emailInbox.isInboxEmpty()) {
+			Email recentEmail = emailInbox.viewRecentEmail();  // Pop the most recent email
+			emailQueue.enQueue(recentEmail);                  // Enqueue the email to the queue
+			emailInbox.popRecentEmail();
 
-	// While the inbox isn't empty, pop recent emails and enqueue them to the queue
-	while (!emailInbox.isInboxEmpty()) {
-		Email recentEmail = emailInbox.viewRecentEmail();  // Pop the most recent email
-		emailQueue.enQueue(recentEmail);                  // Enqueue the email to the queue
-		emailInbox.popRecentEmail();
+			tempStack.push(recentEmail); // Push email onto temporary stack
 
-		tempStack.push(recentEmail); // Push email onto temporary stack
+		}
 
-	}
-
-	while (!tempStack.isEmpty()) {
-		emailInbox.pushEmail(tempStack.getTop());
-		tempStack.pop();
+		while (!tempStack.isEmpty()) {
+			emailInbox.pushEmail(tempStack.getTop());
+			tempStack.pop();
+		}
 	}
 }
+
+
+
+
+
 
 
 void displayMainMenu() {
@@ -303,7 +309,7 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue, I
 				cout << "Invalid row number. Please try again.\n";
 			}
 			else {
-				emailQueue.changePriorityAndMoveToFrontByRow(row);
+				emailQueue.changePriorityAndMoveToFrontByRow(row, emailInbox);
 				emailQueue.displayQueue();
 			}
 			break;

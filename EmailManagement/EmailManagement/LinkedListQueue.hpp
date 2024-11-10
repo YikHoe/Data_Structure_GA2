@@ -227,7 +227,7 @@ public:
 		cout << "All high-priority emails have been moved to the front." << endl;
 	}
 
-	void changePriorityAndMoveToFrontByRow(int rowNumber) {
+	void changePriorityAndMoveToFrontByRow(int rowNumber, InboxManagement& emailInbox) {
 		if (isEmpty()) {
 			cout << "Queue is empty." << endl;
 			return;
@@ -254,9 +254,12 @@ public:
 			cout << endl << "Email at row " << rowNumber << " already has 'High' priority. Only Moving to the front." << endl;
 		}
 		else {
-			// Change the priority to "High"
+			// Change the priority to "High" in the queue
 			current->email.priority = "High";
 			cout << endl << "Priority of email at row " << rowNumber << " changed to 'High' and moved to the front." << endl;
+
+			// Call the stack update function to update priority in the stack
+			updatePriorityInStack(emailInbox, current->email);
 		}
 
 		// If the node is already at the front, no need to move
@@ -274,8 +277,8 @@ public:
 		front->prev = current;
 		front = current;
 		front->prev = nullptr;
-
 	}
+
 
 
 };
