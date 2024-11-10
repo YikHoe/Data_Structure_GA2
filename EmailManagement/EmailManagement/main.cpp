@@ -254,6 +254,38 @@ void unmarkSpam(InboxManagement& emailInbox, InboxManagement& spamEmailInbox, in
 	}
 }
 
+void updatePriorityInStack(InboxManagement& emailInbox, Email& targetEmail) {
+	LinkedListStack<Email> tempStack;  // Temporary stack to hold emails while updating
+	bool updated = false;
+
+	while (!emailInbox.isInboxEmpty()) {
+		Email email = emailInbox.viewRecentEmail();
+		emailInbox.popRecentEmail();
+
+		// Check if the email matches the target email
+		if (email.sender == targetEmail.sender) {  // Adjust comparison as needed
+			email.priority = "High";               // Update priority in stack
+			updated = true;
+		}
+
+		// Push to temporary stack
+		tempStack.push(email);
+	}
+
+	// Restore the original stack order
+	while (!tempStack.isEmpty()) {
+		emailInbox.pushEmail(tempStack.getTop());
+		tempStack.pop();
+	}
+
+	if (updated) {
+		cout << "Priority updated in the stack for the email with sender: " << targetEmail.sender << endl;
+	}
+	else {
+		cout << "Email with sender " << targetEmail.sender << " not found in the stack." << endl;
+	}
+}
+
 void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue, InboxManagement& spamEmailInbox) {
 	int choice;
 
@@ -301,7 +333,7 @@ void inboxManagement(InboxManagement& emailInbox, LinkedListQueue& emailQueue, I
 		case 4: {
 			emailQueue.displayQueue();
 			int row;
-			cout << "Enter the row number to move the email to the front: ";
+			cout << "Enter the row number to change the priority: ";
 			cin >> row;
 			if (cin.fail() || row <= 0) {
 				cin.clear();
