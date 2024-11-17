@@ -28,18 +28,26 @@ void SentOutboxManagement::pushToSent(OutgoingEmail& email) {
     // Format date as "YYYY-MM-DD"
     char dateBuffer[11];  // Enough for "YYYY-MM-DD" + null terminator
     strftime(dateBuffer, sizeof(dateBuffer), "%Y-%m-%d", &localTime);
+    //set the send date
     email.dateSend = dateBuffer;
 
     // Format time as "HH:MM"
     char timeBuffer[6];  // Enough for "HH:MM" + null terminator
     strftime(timeBuffer, sizeof(timeBuffer), "%H:%M", &localTime);
+    //set the send time
     email.timeSend = timeBuffer;
 
-    // Create a new node with the updated email
+
+    // Create a new node 
     OutgoingStackNode* newNode = createNewNode(email);
+    //Push email to stack
+    // If is empty, just replace the top node with newnode
     if (stackSize == 0) {
         topNode = newNode;
-    } else {
+    } 
+    // direct the next address of the new node to current top node
+    // then replace the top node with the new node
+    else {
         newNode->nextAdd = topNode;
         topNode = newNode;
     }

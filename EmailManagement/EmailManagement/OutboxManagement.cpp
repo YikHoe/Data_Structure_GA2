@@ -26,9 +26,11 @@ bool OutboxManagement::isEmpty() {
 
 void OutboxManagement::enQueue(OutgoingEmail email) {
     outgoingQueueNode* newNode = CreateNewNode(email);
+    // if queue is empty, straight add the node at front
     if (isEmpty()) {
         front = rear = newNode;
     }
+    // renew the last node
     else {
         rear->next = newNode;
         newNode->prev = rear;
@@ -88,9 +90,11 @@ OutgoingEmail OutboxManagement::dequeue() {
 
 void OutboxManagement::enQueueToFront(OutgoingEmail email) {
     outgoingQueueNode* newNode = CreateNewNode(email);
+    // when the queue is empty
     if (isEmpty()) {
         front = rear = newNode;
     }
+    // when the queue have email
     else {
         newNode->next = front;
         front->prev = newNode;
