@@ -74,6 +74,7 @@ OutgoingEmail OutboxManagement::dequeue() {
         OutgoingEmail current = front->email;
         front = front->next;
 
+        //handle for situation when queue have 1 node only
         if (front != nullptr) {
             front->prev = nullptr;
         }
